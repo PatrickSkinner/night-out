@@ -1,5 +1,29 @@
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
+var c;
+var ctx;
+
+function init(){
+    c = document.getElementById("myCanvas");
+    ctx = c.getContext("2d");
+    
+    c.addEventListener('click', function(evt) {
+        var mousePos = onClick(evt);
+        console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
+    }, false);
+}
+
+function onClick(evt){
+    //clear();
+    
+    var rect = c.getBoundingClientRect(), root = document.documentElement;
+
+    // return relative mouse position
+    var mouseX = evt.clientX - rect.left - root.scrollLeft;
+    var mouseY = evt.clientY - rect.top - root.scrollTop;
+    return {
+      x: mouseX,
+      y: mouseY
+    };
+}
 
 function drawRect(x,y,w,h,c){
     ctx.fillStyle = c;
@@ -38,3 +62,5 @@ function mapTest(){
 function clear(){
     ctx.clearRect(0, 0, 320, 320);
 }
+
+init();
