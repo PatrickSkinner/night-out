@@ -6,8 +6,10 @@ function init(){
     ctx = c.getContext("2d");
     
     c.addEventListener('click', function(evt) {
-        var mousePos = onClick(evt);
+        mousePos = onClick(evt);
+        mousePosG = mousePos.x;
         console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
+        checkInput(mousePos.x, mousePos.y);
     }, false);
 }
 
@@ -51,8 +53,8 @@ function drawCircle(x, y, r){
     ctx.stroke();
 }
 
-function mapTest(){
-    var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=-45.864518,170.510971&zoom=16&size=320x320";
+function mapTest(long, lat){
+    var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + long + "," + lat +"&zoom=16&size=320x320";
     var imageObj = new Image();
     imageObj.src = google_tile;
     imageObj.onload = function() {
