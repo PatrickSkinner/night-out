@@ -53,8 +53,14 @@ function drawCircle(x, y, r){
     ctx.stroke();
 }
 
+function drawText(x, y, text, c){
+    ctx.fillStyle = c;
+    ctx.font = "30px Arial";
+    ctx.fillText(text, x, y);
+}
+
 function mapTest(long, lat){
-    var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + long + "," + lat +"&zoom=16&size=320x320";
+    var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + long + "," + lat +"&zoom=16&size=320x320"  + "&markers=color:red%7Clabel:C%7C" + long + "," + lat;
     var imageObj = new Image();
     imageObj.src = google_tile;
     imageObj.onload = function() {
