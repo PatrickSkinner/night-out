@@ -26,6 +26,15 @@ function drawCircle(x, y, r){
     ctx.arc(x,y,r,0,2*Math.PI);
     ctx.stroke();
 }
+
+function mapTest(){
+    var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=-45.864518,170.510971&zoom=16&size=320x320";
+    var imageObj = new Image();
+    imageObj.src = google_tile;
+    imageObj.onload = function() {
+        ctx.drawImage(imageObj, 0, 0);
+    };
+}
 function clear(){
     ctx.clearRect(0, 0, 320, 320);
 }
