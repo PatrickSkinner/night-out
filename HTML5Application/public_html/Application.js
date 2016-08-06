@@ -17,4 +17,10 @@ function mainMenu() {
     menuImage.onload = function () {
         drawImage(0, 0, menuImage);
     };
+    
+    addButtonObject();
+    addButtonObject();
+    addButtonObject();
+    addButtonObject();
+    addButtonObject();
 }
