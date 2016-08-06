@@ -67,6 +67,9 @@ function drawShadowRect(x, y, w, h, c){
     ctx.fillRect(x,y,w,h);
 }
 
+function testworks(){
+    return "works";
+}
 function drawLine(x1, y1, x2, y2){
     ctx.moveTo(x1,y1);
     ctx.lineTo(x2,y2);

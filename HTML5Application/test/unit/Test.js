@@ -6,10 +6,13 @@
 
 MyTestCase = TestCase("MyTestCase");
 MyTestCase.prototype.testA = function(){
-   var testApp = new Emulator();
-   assertequals("works", testApp.testworks());
+   assertEquals("works", testworks());
 };
-
+MyTestCase.prototype.testWithinBounds = function(){
+    assertTrue("didnt work with total size", withinBounds(100,100,90,90,10,10));
+    
+    
+}
 
 
 
