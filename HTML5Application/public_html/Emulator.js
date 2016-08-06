@@ -1,5 +1,31 @@
 var c;
 var ctx;
+var buttons = {};
+
+function createButtonObject(x, y, w, h, c, sc, t, tc, onClickFunction, ip) {
+    var createdButton = {
+        xLocation: x,
+        yLocation: y,
+        width: w,
+        height: h,
+        colour: c,
+        shadowColour: sc,
+        text: t,
+        textColour: tc,
+        onClickFunction: function() {onClickFunction(-45.866997, 170.518195);},
+        imagePath: ip
+    };
+    drawButton(x, y, w, h, c, sc, t, tc);
+    buttons[t] = createdButton;
+    return createdButton; 
+}
+
+function withinBounds (x, y, objX, objY, objW, objH) {
+    if ((objX < x && objY < y) && (objW+objX > x && objY+objH > y)) {
+        return true;
+    }
+    return false;
+}
 
 function init(){
     c = document.getElementById("myCanvas");
@@ -63,10 +89,10 @@ function drawImage(x, y, img){
     ctx.drawImage(img, x, y);
 }
 
-function drawButton(x, y, w, h, colour, shadowColour, text){
+function drawButton(x, y, w, h, colour, shadowColour, text, textColour){
     drawRect(x + 5, y + 5, w, h,shadowColour);
     drawRect(x, y, w, h, colour);
-    drawText(x + 30, y + 30, text, "#FFFFFF");
+    drawText(x + 30, y + 30, text, textColour);
 }
 
 function mapTest(long, lat){
