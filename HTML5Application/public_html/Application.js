@@ -18,9 +18,8 @@ function mainMenu() {
         drawImage(0, 0, menuImage);
     };
     
-    addButtonObject();
-    addButtonObject();
-    addButtonObject();
-    addButtonObject();
-    addButtonObject();
+    createButtonObject(20,20, 130, 130, "#00bcd4", "#0095a5", "Botany", "#FFFFFF", null, null );
+    createButtonObject(170,20, 130, 130, "#00bcd4", "#0095a5", "Botany", "#FFFFFF", null, null );
+    createButtonObject(20,170, 130, 130, "#00bcd4", "#0095a5", "Botany", "#FFFFFF", null, null );
+    createButtonObject(170,170, 130, 130, "#00bcd4", "#0095a5", "Botany", "#FFFFFF", null, null );
 }
