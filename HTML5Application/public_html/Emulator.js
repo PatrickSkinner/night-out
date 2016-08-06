@@ -55,12 +55,18 @@ function drawCircle(x, y, r){
 
 function drawText(x, y, text, c){
     ctx.fillStyle = c;
-    ctx.font = "30px Arial";
+    ctx.font = "25px Arial";
     ctx.fillText(text, x, y);
 }
 
 function drawImage(x, y, img){
     ctx.drawImage(img, x, y);
+}
+
+function drawButton(x, y, w, h, colour, shadowColour, text){
+    drawRect(x + 5, y + 5, w, h,shadowColour);
+    drawRect(x, y, w, h, colour);
+    drawText(x + 30, y + 30, text, "#FFFFFF");
 }
 
 function mapTest(long, lat){
@@ -71,6 +77,7 @@ function mapTest(long, lat){
         ctx.drawImage(imageObj, 0, 0);
     };
 }
+
 function clear(){
     ctx.clearRect(0, 0, 320, 320);
 }
