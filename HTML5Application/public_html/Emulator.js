@@ -59,6 +59,10 @@ function drawText(x, y, text, c){
     ctx.fillText(text, x, y);
 }
 
+function drawImage(x, y, img){
+    ctx.drawImage(img, x, y);
+}
+
 function mapTest(long, lat){
     var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + long + "," + lat +"&zoom=16&size=320x320"  + "&markers=color:red%7Clabel:C%7C" + long + "," + lat;
     var imageObj = new Image();
