@@ -1,19 +1,20 @@
 //background
-drawRect(0,0,320,320,"#e8e8e8");
+drawRect(0,0,320,320,"#F2F2F2");
 
 //buttons, wrap this stuff in to an emulator function later
-drawRect(90,65,150,40,"#a3a3a3");
-drawRect(85,60,150,40,"#bfbfbf");
-drawText(115, 90, "Botany", "#111111");
 
-drawRect(90,125,150,40,"#a3a3a3");
-drawRect(85,120,150,40,"#bfbfbf");
-drawText(115, 150, "Owheo", "#111111");
+drawRect(90,65,150,40,"#0095a5");
+drawRect(85,60,150,40,"#00bcd4");
+drawText(115, 90, "Botany", "#FFFFFF");
 
+//drawRect(90,125,150,40,"#0095a5");
+//drawRect(85,120,150,40,"#00bcd4");
+//drawText(115, 150, "Owheo", "#FFFFFF");
+drawButton(85, 120, 150, 40, "#00bcd4", "#0095a5", "Owheo");
 
-drawRect(90,185,150,40,"#a3a3a3");
-drawRect(85,180,150,40,"#bfbfbf");
-drawText(105, 210, "Octagon", "#111111");
+drawRect(90,185,150,40,"#0095a5");
+drawRect(85,180,150,40,"#00bcd4");
+drawText(105, 210, "Octagon", "#FFFFFF");
 
 
 // Check if input is within button boundry, respond appropriately.
