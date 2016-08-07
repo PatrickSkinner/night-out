@@ -2,7 +2,7 @@ var c;
 var ctx;
 var buttons = {};
 
-function createButtonObject(x, y, w, h, c, sc, t, tc, onClickFunction, ip) {
+function createButtonObject(x, y, w, h, c, sc, t, tc, onClickFunction, d, d2) {
     var createdButton = {
         xLocation: x,
         yLocation: y,
@@ -12,8 +12,9 @@ function createButtonObject(x, y, w, h, c, sc, t, tc, onClickFunction, ip) {
         shadowColour: sc,
         text: t,
         textColour: tc,
-        onClickFunction: function() {onClickFunction(-45.866997, 170.518195);},
-        imagePath: ip
+        onClickFunction: function() {onClickFunction(d, d2);},
+        data: d,
+        data2: d2
     };
     drawButton(x, y, w, h, c, sc, t, tc);
     buttons[t] = createdButton;
@@ -25,6 +26,10 @@ function withinBounds (x, y, objX, objY, objW, objH) {
         return true;
     }
     return false;
+}
+
+function getButtons(){
+    return buttons;
 }
 
 function init(){
