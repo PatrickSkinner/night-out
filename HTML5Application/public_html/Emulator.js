@@ -32,6 +32,10 @@ function getButtons(){
     return buttons;
 }
 
+function clearButtons(){
+    buttons = {};
+}
+
 function init(){
     c = document.getElementById("myCanvas");
     ctx = c.getContext("2d");
