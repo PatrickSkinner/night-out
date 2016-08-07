@@ -20,10 +20,12 @@ createButtonObject(85, 120, 150, 40, "#00bcd4", "#0095a5", "Owheo", "#FFFFFF", n
 createButtonObject(85, 180, 150, 40, "#00bcd4", "#0095a5", "Octagon", "#FFFFFF", null, null);
 // Check if input is within button boundry, respond appropriately.
 function checkInput(x, y){
-    console.log();
+    for (var key in buttons) {
+        button = buttons[key];
         if (withinBounds(x, y, button.xLocation, button.yLocation, button.width, button.height)) {
-            console.log(button.text);
+            console.log(button.name);
         }
+    }
 //    if(60 < y && y < 105){
 //        clear();
 //        mapTest(-45.864518, 170.510971);   
