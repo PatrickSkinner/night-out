@@ -2,7 +2,7 @@ var c;
 var ctx;
 var buttons = {};
 
-function createButtonObject(x, y, w, h, c, sc, t, tc, onClickFunction, d, d2) {
+function createButtonObject(x, y, w, h, c, sc, t, tc, onClickFunction, data) {
     var createdButton = {
         xLocation: x,
         yLocation: y,
@@ -12,9 +12,9 @@ function createButtonObject(x, y, w, h, c, sc, t, tc, onClickFunction, d, d2) {
         shadowColour: sc,
         text: t,
         textColour: tc,
-        onClickFunction: function() {onClickFunction(d, d2);},
-        data: d,
-        data2: d2
+        onClickFunction: function() {onClickFunction(data);},
+        data: data
+        //data2: d2
     };
     drawButton(x, y, w, h, c, sc, t, tc);
     buttons[t] = createdButton;
@@ -103,8 +103,8 @@ function drawButton(x, y, w, h, colour, shadowColour, text, textColour){
     drawText(x + 30, y + 30, text, textColour);
 }
 
-function mapTest(long, lat){
-    var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + long + "," + lat +"&zoom=16&size=320x320"  + "&markers=color:red%7Clabel:C%7C" + long + "," + lat;
+function mapTest(obj){
+    var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + obj.lat + "," + obj.long +"&zoom=16&size=320x320"  + "&markers=color:red%7Clabel:C%7C" + obj.lat + "," + obj.long;
     var imageObj = new Image();
     imageObj.src = google_tile;
     imageObj.onload = function() {
