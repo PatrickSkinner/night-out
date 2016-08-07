@@ -18,7 +18,7 @@ function splashScreen() {
     splashImage.onload = function () {
         drawImage(0, 0, splashImage);
     };
-    window.setTimeout(mainMenu, 2000);
+    window.setTimeout(mainMenu, 1000);
 }
 
 function mainMenu() {
@@ -39,10 +39,18 @@ function mainMenu() {
 
 
 
-function toPub(){
+function toPub(data){
     clearButtons();
     clear();
-    console.log("toPub");
+    var pubs = data;
+    console.log(pubs.pubs[0].name);
+    var y = 20;
+    for(var i = 0; i < 5; i++){
+       createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", pubs.pubs[i].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
+       console.log(buttons);
+       y += 60;
+    }
+    
 }
 
 function toClub(){
@@ -61,6 +69,19 @@ function toTaxi(){
     clearButtons();
     clear();
     console.log("toTaxi");
+}
+
+// Check if input is within button boundry, respond appropriately.
+function checkInput(x, y){
+    buttons = getButtons();
+    console.log(buttons);
+    for (var key in buttons) {
+        button = buttons[key];
+        if (withinBounds(x, y, button.xLocation, button.yLocation, button.width, button.height)) {
+            console.log(button.text);
+            button.onClickFunction();
+        }
+    }
 }
 
 splashScreen();
