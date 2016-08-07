@@ -14,8 +14,8 @@ function createButtonObject(x, y, w, h, c, sc, t, tc, onClickFunction, data) {
         textColour: tc,
         onClickFunction: function() {onClickFunction(data);},
         data: data
-        //data2: d2
     };
+    
     drawButton(x, y, w, h, c, sc, t, tc);
     buttons[t] = createdButton;
     return createdButton; 
@@ -49,8 +49,6 @@ function init(){
 }
 
 function onClick(evt){
-    //clear();
-    
     var rect = c.getBoundingClientRect(), root = document.documentElement;
 
     // return relative mouse position
@@ -62,23 +60,11 @@ function onClick(evt){
     };
 }
 
-function drawRect(x,y,w,h,c){
+function drawRect(x, y, w, h, c){
     ctx.fillStyle = c;
     ctx.fillRect(x,y,w,h);
 }
 
-function drawShadowRect(x, y, w, h, c){
-    ctx.fillStyle = c;
-    ctx.shadowColor = '#999';
-    ctx.shadowBlur = 15;
-    ctx.shadowOffsetX = 5;
-    ctx.shadowOffsetY = 5;
-    ctx.fillRect(x,y,w,h);
-}
-
-function testworks(){
-    return "works";
-}
 function drawLine(x1, y1, x2, y2){
     ctx.moveTo(x1,y1);
     ctx.lineTo(x2,y2);
