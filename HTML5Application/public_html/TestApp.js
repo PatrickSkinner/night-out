@@ -11,7 +11,7 @@ function checkInput(x, y){
     buttons = getButtons();
     for (var key in buttons) {
         button = buttons[key];
-        if (withinBounds(x, y, button.xLocation, button.yLocation, button.width, button.height)) {
+        if (typeof button !== 'undefined' && withinBounds(x, y, button.xLocation, button.yLocation, button.width, button.height)) {
             console.log(button.text);
             button.onClickFunction();
         }
