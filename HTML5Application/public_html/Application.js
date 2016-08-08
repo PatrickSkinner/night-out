@@ -30,68 +30,48 @@ function mainMenu() {
         drawImage(0, 0, menuImage);
     };
     
-    createButtonObject(20,20, 130, 130, "#00bcd4", "#0095a5", "Pubs", "#FFFFFF", toPub, loadData("pub") );
-    createButtonObject(170,20, 130, 130, "#00bcd4", "#0095a5", "Clubs", "#FFFFFF", toClub, loadData("club") );
-    createButtonObject(20,170, 130, 130, "#00bcd4", "#0095a5", "Food", "#FFFFFF", toFood, loadData("food") );
-    createButtonObject(170,170, 130, 130, "#00bcd4", "#0095a5", "Taxi", "#FFFFFF", toTaxi, loadData("taxi") );
+    createButtonObject(20,20, 130, 130, "#00bcd4", "#0095a5", "Pubs", "#FFFFFF", toPub, null);
+    createButtonObject(170,20, 130, 130, "#00bcd4", "#0095a5", "Clubs", "#FFFFFF", toClub, null);
+    createButtonObject(20,170, 130, 130, "#00bcd4", "#0095a5", "Food", "#FFFFFF", toFood, null);
+    createButtonObject(170,170, 130, 130, "#00bcd4", "#0095a5", "Taxi", "#FFFFFF", toTaxi, null);
     loadData("JSONclubEmu.js");
 }
 
-function drawButtonList(size, data, passedFunction){
-    var y = 20;
-    for(var i = 0; i < size; i++){
-       createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", data[i].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
-       //console.log(buttons);
-       y += 60;
-    }
-}
-
-function toPub(data){
-    clearButtons();
-    clear();
-    var pubs = data;
+function drawButtonList(data){
     var y = 20;
     var x;
-    for (x in pubs){
-        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", pubs[x].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
+    for (x in data){
+        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", data[x].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
         y += 60;
     }
 }
 
-function toClub(data){
+function toPub(){
     clearButtons();
     clear();
-    var clubs = data;
-    var y = 20;
-    var x;
-    for (x in clubs){
-        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", clubs[x].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
-        y += 60;
-    }
+
+    drawButtonList(loadData("pub"));
 }
 
-function toFood(data){
+function toClub(){
     clearButtons();
     clear();
-    var food = data;
-    var y = 20;
-    var x;
-    for (x in food){
-        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", food[x].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
-        y += 60;
-    }
+    
+    drawButtonList(loadData("club"));
 }
 
-function toTaxi(data){
+function toFood(){
     clearButtons();
     clear();
-    var taxi = data;
-    var y = 20;
-    var x;
-    for (x in taxi){
-        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", taxi[x].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
-        y += 60;
-    }
+    
+    drawButtonList(loadData("food"));
+}
+
+function toTaxi(){
+    clearButtons();
+    clear();
+    
+    drawButtonList(loadData("taxi"));
 }
 
 // Check if input is within button boundry, respond appropriately.
