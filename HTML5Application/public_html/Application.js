@@ -1,16 +1,14 @@
 function loadData(name){
     if(name === "pub"){
-       var data = getPubFile(); 
+        return getPubFile(); 
     }else if(name === "club"){
-        var data = getClubFile();
+        return getClubFile();
     } else if(name === "food"){
-        var data = getFoodFile();
+        return getFoodFile();
     } else {
-        var data = getTaxiFile();
+        return getTaxiFile();
     }
-    return data;
 }
-
 
 function splashScreen() {
     splashImage = new Image();
@@ -30,25 +28,32 @@ function mainMenu() {
         drawImage(0, 0, menuImage);
     };
     
-    createButtonObject(20,20, 130, 130, "#00bcd4", "#0095a5", "Pubs", "#FFFFFF", toNameList, "pub");
-    createButtonObject(170,20, 130, 130, "#00bcd4", "#0095a5", "Clubs", "#FFFFFF", toNameList, "club");
-    createButtonObject(20,170, 130, 130, "#00bcd4", "#0095a5", "Food", "#FFFFFF", toNameList, "food");
-    createButtonObject(170,170, 130, 130, "#00bcd4", "#0095a5", "Taxi", "#FFFFFF", toNameList, "taxi");
-    loadData("JSONclubEmu.js");
+    createButtonObject(20, 20, 130, 130, "#00bcd4", "#0095a5", "Pubs", "#FFFFFF", toNameList, obj = {name: "pub", function: "venueDisplay"} );
+    createButtonObject(170, 20, 130, 130, "#00bcd4", "#0095a5", "Clubs", "#FFFFFF", toNameList, obj = {name: "club", function: "venueDisplay"} );
+    createButtonObject(20, 170, 130, 130, "#00bcd4", "#0095a5", "Food", "#FFFFFF", toNameList, obj = {name: "food", function: "venueDisplay"} );
+    createButtonObject(170, 170, 130, 130, "#00bcd4", "#0095a5", "Taxi", "#FFFFFF", toNameList, obj = {name: "taxi", function: "taxiDisplay"} );
 }
 
-function toNameList(name){
+function toNameList(data){
     clearButtons();
     clear();
 
-    var y = 20;
     var x;
-    var data = loadData(name);
+    var y = 20;
+    var d = loadData(data.name);
     
-    for (x in data){
-        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", data[x].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
+    for (x in d){
+        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", d[x].name, "#FFFFFF", data.function, d);
         y += 60;
     }
+}
+
+function venueDisplay(data){
+    
+}
+
+function taxiDisplay(data){
+    
 }
 
 // Check if input is within button boundry, respond appropriately.
@@ -56,7 +61,7 @@ function checkInput(x, y){
     buttons = getButtons();
     for (var key in buttons) {
         button = buttons[key];
-        if (typeof button !== 'undefined' && withinBounds(x, y, button.xLocation, button.yLocation, button.width, button.height)) {
+        if (typeof button !== 'undefined' && withinBounds(x, y, button.xLocation, button.yLocation, button.width, button.height) ) {
             button.onClickFunction();
         }
     }
