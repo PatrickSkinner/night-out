@@ -37,38 +37,61 @@ function mainMenu() {
     loadData("JSONclubEmu.js");
 }
 
-
+function drawButtonList(size, data, passedFunction){
+    var y = 20;
+    for(var i = 0; i < size; i++){
+       createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", data[i].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
+       //console.log(buttons);
+       y += 60;
+    }
+}
 
 function toPub(data){
     clearButtons();
     clear();
     var pubs = data;
-    console.log(pubs.pubs[0].name);
     var y = 20;
-    for(var i = 0; i < 5; i++){
-       createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", pubs.pubs[i].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
-       console.log(buttons);
-       y += 60;
+    var x;
+    for (x in pubs){
+        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", pubs[x].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
+        y += 60;
     }
-    
 }
 
-function toClub(){
+function toClub(data){
     clearButtons();
     clear();
-    console.log("toClub");
+    var clubs = data;
+    var y = 20;
+    var x;
+    for (x in clubs){
+        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", clubs[x].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
+        y += 60;
+    }
 }
 
-function toFood(){
+function toFood(data){
     clearButtons();
     clear();
-    console.log("toFood");
+    var food = data;
+    var y = 20;
+    var x;
+    for (x in food){
+        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", food[x].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
+        y += 60;
+    }
 }
 
-function toTaxi(){
+function toTaxi(data){
     clearButtons();
     clear();
-    console.log("toTaxi");
+    var taxi = data;
+    var y = 20;
+    var x;
+    for (x in taxi){
+        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", taxi[x].name, "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
+        y += 60;
+    }
 }
 
 // Check if input is within button boundry, respond appropriately.

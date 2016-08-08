@@ -76,7 +76,7 @@ var pub = {
 
 
 function getPubFile() {
-    return pub;     
+    return pub.pubs;     
 }
 
 var club = {
@@ -155,7 +155,7 @@ var club = {
 };
 
 function getClubFile() {
-    return club;   
+    return club.clubs;   
 }
 
 var food = {
@@ -240,7 +240,7 @@ var food = {
 
 
 function getFoodFile(){     
-    return food;
+    return food.foodVenues;
 }
 
 var taxis = {
@@ -264,6 +264,6 @@ var taxis = {
 };
 
 function getTaxiFile() {
-    return taxis;
+    return taxis.taxis;
 }
 
