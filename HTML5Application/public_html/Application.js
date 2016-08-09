@@ -28,10 +28,10 @@ function mainMenu() {
         drawImage(0, 0, menuImage);
     };
     
-    createButtonObject(20, 20, 130, 130, "#00bcd4", "#0095a5", "Pubs", "#FFFFFF", toNameList, obj = {name: "pub", function: "venueDisplay"} );
-    createButtonObject(170, 20, 130, 130, "#00bcd4", "#0095a5", "Clubs", "#FFFFFF", toNameList, obj = {name: "club", function: "venueDisplay"} );
-    createButtonObject(20, 170, 130, 130, "#00bcd4", "#0095a5", "Food", "#FFFFFF", toNameList, obj = {name: "food", function: "venueDisplay"} );
-    createButtonObject(170, 170, 130, 130, "#00bcd4", "#0095a5", "Taxi", "#FFFFFF", toNameList, obj = {name: "taxi", function: "taxiDisplay"} );
+    createButtonObject(20, 20, 130, 130, "#00bcd4", "#0095a5", "Pubs", "#FFFFFF", toNameList, obj = {name: "pub", function: venueDisplay} );
+    createButtonObject(170, 20, 130, 130, "#00bcd4", "#0095a5", "Clubs", "#FFFFFF", toNameList, obj = {name: "club", function: venueDisplay} );
+    createButtonObject(20, 170, 130, 130, "#00bcd4", "#0095a5", "Food", "#FFFFFF", toNameList, obj = {name: "food", function: venueDisplay} );
+    createButtonObject(170, 170, 130, 130, "#00bcd4", "#0095a5", "Taxi", "#FFFFFF", toNameList, obj = {name: "taxi", function: taxiDisplay} );
 }
 
 function toNameList(data){
@@ -49,11 +49,15 @@ function toNameList(data){
 }
 
 function venueDisplay(data){
-    
+    console.log("Venue Display Active");
+    clearButtons();
+    clear();
 }
 
 function taxiDisplay(data){
-    
+    console.log("Taxi Display Active");
+    clearButtons();
+    clear();
 }
 
 // Check if input is within button boundry, respond appropriately.

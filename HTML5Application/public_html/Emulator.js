@@ -77,9 +77,9 @@ function drawCircle(x, y, r){
     ctx.stroke();
 }
 
-function drawText(x, y, text, c){
+function drawText(x, y, text, c, s){
     ctx.fillStyle = c;
-    ctx.font = "25px Arial";
+    ctx.font = s + "px Arial";
     ctx.fillText(text, x, y);
 }
 
@@ -90,7 +90,7 @@ function drawImage(x, y, img){
 function drawButton(x, y, w, h, colour, shadowColour, text, textColour){
     drawRect(x + 5, y + 5, w, h,shadowColour);
     drawRect(x, y, w, h, colour);
-    drawText(x + 30, y + 30, text, textColour);
+    drawText(x + 30, y + 30, text, textColour, 25);
 }
 
 function mapTest(obj){
