@@ -1,3 +1,6 @@
+var lastFunction;
+var lastParameter;
+
 function loadData(name){
     if(name === "pub"){
         return getPubFile(); 
@@ -28,34 +31,43 @@ function mainMenu() {
         drawImage(0, 0, menuImage);
     };
     
-    createButtonObject(20, 20, 130, 130, "#00bcd4", "#0095a5", "Pubs", "#FFFFFF", toNameList, obj = {name: "pub", function: venueDisplay} );
-    createButtonObject(170, 20, 130, 130, "#00bcd4", "#0095a5", "Clubs", "#FFFFFF", toNameList, obj = {name: "club", function: venueDisplay} );
-    createButtonObject(20, 170, 130, 130, "#00bcd4", "#0095a5", "Food", "#FFFFFF", toNameList, obj = {name: "food", function: venueDisplay} );
-    createButtonObject(170, 170, 130, 130, "#00bcd4", "#0095a5", "Taxi", "#FFFFFF", toNameList, obj = {name: "taxi", function: taxiDisplay} );
+    createButtonObject(20, 20, 130, 130, "#00bcd4", "#0095a5", "Pubs", "#FFFFFF", toNameList, obj = {list: loadData("pub"), function: venueDisplay} );
+    createButtonObject(170, 20, 130, 130, "#00bcd4", "#0095a5", "Clubs", "#FFFFFF", toNameList, obj = {list: loadData("club"), function: venueDisplay} );
+    createButtonObject(20, 170, 130, 130, "#00bcd4", "#0095a5", "Food", "#FFFFFF", toNameList, obj = {list: loadData("food"), function: venueDisplay} );
+    createButtonObject(170, 170, 130, 130, "#00bcd4", "#0095a5", "Taxi", "#FFFFFF", toNameList, obj = { list: loadData("taxi"), function: taxiDisplay} );
 }
 
 function toNameList(data){
+    console.log("toNameList start");
+    
     clearButtons();
     clear();
+    
+    lastFunction = mainMenu;
+    lastParameter = null;
 
     var x;
-    var y = 20;
-    var d = loadData(data.name);
+    var y = 5;
     
-    for (x in d){
-        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", d[x].name, "#FFFFFF", data.function, d);
-        y += 60;
+    for (x in data.list){
+        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", data.list[x].name, "#FFFFFF", data.function, obj = { venue: data.list[x], list: data.list });
+        y += 55;
     }
+    
+    createButtonObject(20, 290, 280, 20, "#00bFd4", "#0095a5", "back", "#FFFFFF", goBack, null);
+    
+    console.log("toNameList complete");
 }
 
 function venueDisplay(data){
-    console.log("Venue Display Active");
+    lastFunction = toNameList;
+    lastParameter = data.list;
+    
     clearButtons();
     clear();
 }
 
 function taxiDisplay(data){
-    console.log("Taxi Display Active");
     clearButtons();
     clear();
 }
@@ -69,6 +81,17 @@ function checkInput(x, y){
             button.onClickFunction();
         }
     }
+}
+
+function goBack(){
+    clear();
+    clearButtons();
+    
+    if(lastParameter !== null){
+        lastFunction(lastParameter);
+    }
+    
+    lastFunction();
 }
 
 splashScreen();
