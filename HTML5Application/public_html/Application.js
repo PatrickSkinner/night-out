@@ -38,8 +38,6 @@ function mainMenu() {
 }
 
 function toNameList(data){
-    console.log("toNameList start");
-    
     clearButtons();
     clear();
     
@@ -55,8 +53,6 @@ function toNameList(data){
     }
     
     createButton(20, 290, 280, 20, "#00bFd4", "#0095a5", "back", "#FFFFFF", goBack, null);
-    
-    console.log("toNameList complete");
 }
 
 function venueDisplay(data){
@@ -68,6 +64,9 @@ function venueDisplay(data){
 }
 
 function taxiDisplay(data){
+    lastFunction = toNameList;
+    lastParameter = data.list;
+    
     clearButtons();
     clear();
 }
