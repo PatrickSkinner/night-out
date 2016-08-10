@@ -2,9 +2,9 @@
 drawRect(0,0,320,320,"#F2F2F2");
 
 //buttons
-createButtonObject(85, 60, 150, 40, "#00bcd4", "#0095a5", "Botany", "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
-createButtonObject(85, 120, 150, 40, "#00bcd4", "#0095a5", "Owheo", "#FFFFFF", mapTest, obj = {lat: -45.866997, long: 170.518195});
-createButtonObject(85, 180, 150, 40, "#00bcd4", "#0095a5", "Octagon", "#FFFFFF", mapTest, obj = {lat: -45.874307, long: 170.504151});
+createButton(85, 60, 150, 40, "#00bcd4", "#0095a5", "Botany", "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971} );
+createButton(85, 120, 150, 40, "#00bcd4", "#0095a5", "Owheo", "#FFFFFF", mapTest, obj = {lat: -45.866997, long: 170.518195});
+createButton(85, 180, 150, 40, "#00bcd4", "#0095a5", "Octagon", "#FFFFFF", mapTest, obj = {lat: -45.874307, long: 170.504151});
 
 // Check if input is within button boundry, respond appropriately.
 function checkInput(x, y){

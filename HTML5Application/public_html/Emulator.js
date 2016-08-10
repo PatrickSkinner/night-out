@@ -2,23 +2,23 @@ var c;
 var ctx;
 var buttons = {};
 
-function createButtonObject(x, y, w, h, c, sc, t, tc, onClickFunction, data) {
+function createButton(x, y, w, h, c, sc, t, tc, onClickFunction, data) {    
+    var createdButton = createButtonObject(x, y, w, h, onClickFunction, data);    
+    drawButton(x, y, w, h, c, sc, t, tc);
+    buttons[t] = createdButton;
+}
+
+function createButtonObject(x, y, w, h, onClickFunction, data) {
     var createdButton = {
         xLocation: x,
         yLocation: y,
         width: w,
         height: h,
-        colour: c,
-        shadowColour: sc,
-        text: t,
-        textColour: tc,
         onClickFunction: function() {onClickFunction(data);},
         data: data
     };
     
-    drawButton(x, y, w, h, c, sc, t, tc);
-    buttons[t] = createdButton;
-    return createdButton; 
+    return createdButton;
 }
 
 function withinBounds (x, y, objX, objY, objW, objH) {
@@ -104,6 +104,10 @@ function mapTest(obj){
 
 function clear(){
     ctx.clearRect(0, 0, 320, 320);
+}
+
+function drawTextBox(){
+    
 }
 
 init();

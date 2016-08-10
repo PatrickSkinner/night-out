@@ -31,10 +31,10 @@ function mainMenu() {
         drawImage(0, 0, menuImage);
     };
     
-    createButtonObject(20, 20, 130, 130, "#00bcd4", "#0095a5", "Pubs", "#FFFFFF", toNameList, obj = {list: loadData("pub"), function: venueDisplay} );
-    createButtonObject(170, 20, 130, 130, "#00bcd4", "#0095a5", "Clubs", "#FFFFFF", toNameList, obj = {list: loadData("club"), function: venueDisplay} );
-    createButtonObject(20, 170, 130, 130, "#00bcd4", "#0095a5", "Food", "#FFFFFF", toNameList, obj = {list: loadData("food"), function: venueDisplay} );
-    createButtonObject(170, 170, 130, 130, "#00bcd4", "#0095a5", "Taxi", "#FFFFFF", toNameList, obj = { list: loadData("taxi"), function: taxiDisplay} );
+    createButton(20, 20, 130, 130, "#00bcd4", "#0095a5", "Pubs", "#FFFFFF", toNameList, obj = {list: loadData("pub"), function: venueDisplay} );
+    createButton(170, 20, 130, 130, "#00bcd4", "#0095a5", "Clubs", "#FFFFFF", toNameList, obj = {list: loadData("club"), function: venueDisplay} );
+    createButton(20, 170, 130, 130, "#00bcd4", "#0095a5", "Food", "#FFFFFF", toNameList, obj = {list: loadData("food"), function: venueDisplay} );
+    createButton(170, 170, 130, 130, "#00bcd4", "#0095a5", "Taxi", "#FFFFFF", toNameList, obj = { list: loadData("taxi"), function: taxiDisplay} );
 }
 
 function toNameList(data){
@@ -50,11 +50,11 @@ function toNameList(data){
     var y = 5;
     
     for (x in data.list){
-        createButtonObject(20, y, 280, 45, "#00bcd4", "#0095a5", data.list[x].name, "#FFFFFF", data.function, obj = { venue: data.list[x], list: data.list });
+        createButton(20, y, 280, 45, "#00bcd4", "#0095a5", data.list[x].name, "#FFFFFF", data.function, obj = { venue: data.list[x], list: data.list });
         y += 55;
     }
     
-    createButtonObject(20, 290, 280, 20, "#00bFd4", "#0095a5", "back", "#FFFFFF", goBack, null);
+    createButton(20, 290, 280, 20, "#00bFd4", "#0095a5", "back", "#FFFFFF", goBack, null);
     
     console.log("toNameList complete");
 }
