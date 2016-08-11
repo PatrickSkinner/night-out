@@ -52,7 +52,8 @@ function toNameList(data){
         y += 55;
     }
     
-    createButton(20, 290, 280, 20, "#00bFd4", "#0095a5", "back", "#FFFFFF", goBack, null);
+    createButton(20, 290, 280, 20, "#00bFd4", "#0095a5", "", "#FFFFFF", goBack, null);
+    drawText(135, 308, "Back", "#FFFFFF", 20);
 }
 
 function venueDisplay(data){
@@ -61,6 +62,15 @@ function venueDisplay(data){
     
     clearButtons();
     clear();
+    
+    drawRect(20 + 5, 10 + 5, 280, 260, "#666666");
+    drawRect(20, 10, 280, 260, "#CCCCCC");
+    
+    createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", "", "#FFFFFF", goBack, null);
+    drawText(35, 308, "Back", "#FFFFFF", 20);
+    
+    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", "", "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971});
+    drawText(145, 308, "View on Map", "#FFFFFF", 20);
 }
 
 function taxiDisplay(data){
