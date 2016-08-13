@@ -1,11 +1,11 @@
 var c;
 var ctx;
-var buttons = {};
+var buttons = [];
 
-function createButton(x, y, w, h, c, sc, t, tc, onClickFunction, data) {    
+function createButton(x, y, w, h, c, sc, onClickFunction, data) {    
     var createdButton = createButtonObject(x, y, w, h, onClickFunction, data);    
-    drawButton(x, y, w, h, c, sc, t, tc);
-    buttons[t] = createdButton;
+    drawButton(x, y, w, h, c, sc);
+    buttons.push(createdButton);
 }
 
 function createButtonObject(x, y, w, h, onClickFunction, data) {
@@ -33,7 +33,7 @@ function getButtons(){
 }
 
 function clearButtons(){
-    buttons = {};
+    buttons = [];
 }
 
 function init(){
@@ -87,10 +87,9 @@ function drawImage(x, y, img){
     ctx.drawImage(img, x, y);
 }
 
-function drawButton(x, y, w, h, colour, shadowColour, text, textColour){
+function drawButton(x, y, w, h, colour, shadowColour){
     drawRect(x + 5, y + 5, w, h,shadowColour);
     drawRect(x, y, w, h, colour);
-    drawText(x + 30, y + 30, text, textColour, 25);
 }
 
 function mapTest(obj){

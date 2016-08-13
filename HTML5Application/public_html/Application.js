@@ -31,10 +31,10 @@ function mainMenu() {
         drawImage(0, 0, menuImage);
     };
     
-    createButton(20, 20, 130, 130, "#00bcd4", "#0095a5", "Pubs", "#FFFFFF", toNameList, obj = {list: loadData("pub"), function: venueDisplay} );
-    createButton(170, 20, 130, 130, "#00bcd4", "#0095a5", "Clubs", "#FFFFFF", toNameList, obj = {list: loadData("club"), function: venueDisplay} );
-    createButton(20, 170, 130, 130, "#00bcd4", "#0095a5", "Food", "#FFFFFF", toNameList, obj = {list: loadData("food"), function: venueDisplay} );
-    createButton(170, 170, 130, 130, "#00bcd4", "#0095a5", "Taxi", "#FFFFFF", toNameList, obj = { list: loadData("taxi"), function: taxiDisplay} );
+    createButton(20, 20, 130, 130, "#00bcd4", "#0095a5", toNameList, obj = {list: loadData("pub"), function: venueDisplay} );
+    createButton(170, 20, 130, 130, "#00bcd4", "#0095a5", toNameList, obj = {list: loadData("club"), function: venueDisplay} );
+    createButton(20, 170, 130, 130, "#00bcd4", "#0095a5", toNameList, obj = {list: loadData("food"), function: venueDisplay} );
+    createButton(170, 170, 130, 130, "#00bcd4", "#0095a5", toNameList, obj = { list: loadData("taxi"), function: taxiDisplay} );
 }
 
 function toNameList(data){
@@ -48,11 +48,11 @@ function toNameList(data){
     var y = 5;
     
     for (x in data.list){
-        createButton(20, y, 280, 45, "#00bcd4", "#0095a5", data.list[x].name, "#FFFFFF", data.function, obj = { venue: data.list[x], list: data.list });
+        createButton(20, y, 280, 45, "#00bcd4", "#0095a5", data.function, obj = { venue: data.list[x], list: data.list });
         y += 55;
     }
     
-    createButton(20, 290, 280, 20, "#00bFd4", "#0095a5", "", "#FFFFFF", goBack, null);
+    createButton(20, 290, 280, 20, "#00bFd4", "#0095a5", goBack, null);
     drawText(135, 308, "Back", "#FFFFFF", 20);
 }
 
@@ -66,10 +66,10 @@ function venueDisplay(data){
     drawRect(20 + 5, 10 + 5, 280, 260, "#666666");
     drawRect(20, 10, 280, 260, "#CCCCCC");
     
-    createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", "", "#FFFFFF", goBack, null);
+    createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", goBack, null);
     drawText(35, 308, "Back", "#FFFFFF", 20);
     
-    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", "", "#FFFFFF", mapTest, obj = {lat: -45.864518, long: 170.510971});
+    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", mapTest, obj = {lat: -45.864518, long: 170.510971});
     drawText(145, 308, "View on Map", "#FFFFFF", 20);
 }
 
