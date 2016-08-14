@@ -68,10 +68,11 @@ function toNameList(data){
     lastParameter = null;
 
     var x;
-    var y = 5;
+    var y = 10;
     
     for (x in data.list){
-        createButton(20, y, 280, 45, "#00bcd4", "#0095a5", data.function, obj = { venue: data.list[x], list: data.list, data: data });
+        createButton(20, y, 280, 45, "#00bcd4", "#0095a5", data.function, obj = { venue: data.list[x], list: data.list});
+        drawText(30, (y + 33), data.list[x].name, "#FFFFFF", 26, "Arial");
         y += 55;
     }
     
@@ -81,7 +82,7 @@ function toNameList(data){
 
 function venueDisplay(data){
     lastFunction = toNameList;
-    lastParameter = data.data;
+    lastParameter = data.list;
     
     clearButtons();
     clear();
@@ -89,10 +90,25 @@ function venueDisplay(data){
     drawRect(20 + 5, 10 + 5, 280, 260, "#666666");
     drawRect(20, 10, 280, 260, "#CCCCCC");
     
+    drawText(30, 40, data.venue.name + ":", "#FFFFFF", 26, "Arial");
+    
+    drawText(30, 70, data.venue.address, "#FFFFFF", 22, "Arial");
+    drawText(30, 95, data.venue.city, "#FFFFFF", 22, "Arial");
+    
+    drawText(30, 130, data.venue.open, "#FFFFFF", 22, "Arial");
+    drawText(30, 155, data.venue.phone, "#FFFFFF", 22, "Arial");
+    
+    drawText(30, 190, "Rating: " + data.venue.rating, "#FFFFFF", 22, "Arial");
+    
+    createButton(30, 200, 90, 30, "#00bFd4", "#0095a5", webRedirect, data.venue.webLink);
+    drawText(35, 223, "Website", "#FFFFFF", 22, "Arial");
+    
+    drawText(25, 265, "Click box for description", "#FFFFFF", 16, "Arial");
+    
     createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", goBack, null);
     drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
     
-    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", mapTest, obj = {lat: -45.864518, long: 170.510971});
+    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", mapTest, obj = {lat: data.venue.latitude, long: data.venue.longitude});
     drawText(145, 308, "View on Map", "#FFFFFF", 20, "Arial");
 
 }
@@ -104,6 +120,10 @@ function taxiDisplay(data){
     clearButtons();
     clear();
 
+}
+
+function webRedirect(url){
+    window.location = url;
 }
 
 // Check if input is within button boundry, respond appropriately.
