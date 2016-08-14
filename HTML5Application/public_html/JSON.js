@@ -247,17 +247,17 @@ var taxis = {
     "taxis": [
         {
             "name": "Blue Bubble Taxis",
-            "number": "03 477 7777",
+            "phone": "03 477 7777",
             "webLink": "dunedin.bluebubbletaxi.co.nz"
         },
         {
             "name": "City United Taxis",
-            "number": "03 455 5555",
+            "phone": "03 455 5555",
             "webLink": "http://www.cityunitedtaxis.co.nz"
         },
         {
             "name": "Southern Taxis",
-            "number": "03 476 6300",
+            "phone": "03 476 6300",
             "webLink": "http://www.southerntaxis.co.nz"
         }
 ]
