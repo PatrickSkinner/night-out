@@ -3,8 +3,8 @@ var pub = {
     "pubs": [
         {
             "name": "The Bog",
-            "latitude": 5642.3,
-            "longitude": 5352.2,
+            "latitude": -45.868230,
+            "longitude": 170.506725,
             "address": "387 George St",
             "city": "Dunedin",
             "details": "Authentic Irish Pub. Get some Guinness in yer.",
@@ -17,8 +17,8 @@ var pub = {
         },
         {
             "name": "Craft Bar",
-            "latitude": 3425.6,
-            "longitude": 7537.6,
+            "latitude": -45.874083,
+            "longitude": 170.504440,
             "address": "10 The Octagon",
             "city": "Dunedin",
             "details": "Craft Bar turns 11 this year! Come down for $11 lunches and beer prices from 11 years ago. ",
@@ -31,8 +31,8 @@ var pub = {
         },
         {
             "name": "The Craic Irish Tavern",
-            "latitude": 3525.6,
-            "longitude": 5352.7,
+            "latitude": -45.874961,
+            "longitude": 170.503813,
             "address": "24 The Octagon",
             "city": "Dunedin",
             "details": "Come on in tonight and enjoy the entertainment of our open mic night!",
@@ -45,8 +45,8 @@ var pub = {
         },
         {
             "name": "Innocent Bystander",
-            "latitude": 3552.5,
-            "longitude": 6262.7,
+            "latitude": -45.874212,
+            "longitude": 170.504339,
             "address": "Octagon Dunedin",
             "city": "Dunedin",
             "details": "Great Pizza and also you can vape hard there thanks to the outdoor dance area.",
@@ -59,8 +59,8 @@ var pub = {
         },
         {
             "name": "Alibi",
-            "latitude": 3424.2,
-            "longitude": 9241.6,
+            "latitude": -45.874635,
+            "longitude": 170.503455,
             "address": "1 Princes St",
             "city": "Dunedin",
             "details": "Come down and try our meal of the month!",
@@ -83,8 +83,8 @@ var club = {
     "clubs": [
         {
             "name": "Boogie",
-            "latitude": 2341.0,
-            "longitude": 2312.2,
+            "latitude": -45.868047,
+            "longitude": 170.507865,
             "address": "19 Frederick St",
             "city": "Dunedin",
             "details": "Boogie is a club that plays all the old songs everyone only likes when theyre drunk.",
@@ -97,8 +97,8 @@ var club = {
         },
         {
             "name": "10 Bar",
-            "latitude": 1221.9,
-            "longitude": 8042.4,
+            "latitude": -45.874042,
+            "longitude": 170.504343,
             "address": "10 The Octagon",
             "city": "Dunedin",
             "details": "Nightclub/21st/Function Venue/pirate/Entertainment!!",
@@ -111,8 +111,8 @@ var club = {
         },
         {
             "name": "Brimstone",
-            "latitude": 2425.2,
-            "longitude": 5321.3,
+            "latitude": -45.875165,
+            "longitude": 170.502829,
             "address": "66 Princes St",
             "city": "Dunedin",
             "details": "This is the club for 30 year olds who realise they are going nowhere with their lives.",
@@ -125,8 +125,8 @@ var club = {
         },
         {
             "name": "The Break",
-            "latitude": 5532.5,
-            "longitude": 9234.4,
+            "latitude": -45.873568,
+            "longitude": 170.505848,
             "address": "1 Great King St",
             "city": "Dunedin",
             "details": "A great place to hook up with desperate chicks after 2am.",
@@ -139,8 +139,8 @@ var club = {
         },
         {
             "name": "Suburbia",
-            "latitude": 3525.1,
-            "longitude": 6754.9,
+            "latitude": -45.874514,
+            "longitude": 170.504447,
             "address": "153 Stuart St",
             "city": "Dunedin",
             "details": "This club is pretty sweet, the underground part is cool.",
@@ -162,8 +162,8 @@ var food = {
     "foodVenues": [
         {
             "name": "McDonalds",
-            "latitude": 4636.5,
-            "longitude": 5273.7,
+            "latitude": -45.871189,
+            "longitude": 170.505738,
             "address": "232 George St",
             "city": "Dunedin",
             "category": "Burgers",
@@ -177,8 +177,8 @@ var food = {
         },
         {
             "name": "Dost Turkish Cafe",
-            "latitude": 3525.1,
-            "longitude": 2595.6,
+            "latitude": -45.874788,
+            "longitude": 170.503437,
             "address": "15 Princes St",
             "city": "Dunedin",
             "category": "Kebabs",
@@ -192,8 +192,8 @@ var food = {
         },
         {
             "name": "Velvet Burger",
-            "latitude": 8439.5,
-            "longitude": 5285.5,
+            "latitude": -45.868383,
+            "longitude": 170.506704,
             "address": "375 George St",
             "city": "Dunedin",
             "category": "Burgers",
@@ -207,8 +207,8 @@ var food = {
         },
         {
             "name": "Pita Pit",
-            "latitude": 3526.6,
-            "longitude": 6839.6,
+            "latitude": -45.868480,
+            "longitude": 170.506586,
             "address": "371 George St",
             "city": "Dunedin",
             "category": "Wraps & Sandwiches",
@@ -222,8 +222,8 @@ var food = {
         },
         {
             "name": "Night n Day",
-            "latitude": 6362.7,
-            "longitude": 9483.6,
+            "latitude": -45.874626,
+            "longitude": 170.503184,
             "address": "18 Princes St",
             "city": "Dunedin",
             "category": "Convenience Store",
