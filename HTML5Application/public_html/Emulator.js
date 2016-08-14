@@ -40,14 +40,16 @@ function clearButtons(){
 
 function init(){
     c = document.getElementById("myCanvas");
-    ctx = c.getContext("2d");
+    if(c.getContext !== null){
+        ctx = c.getContext("2d");
     
-    c.addEventListener('click', function(evt) {
-        mousePos = onClick(evt);
-        mousePosG = mousePos.x;
-        console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
-        checkInput(mousePos.x, mousePos.y);
-    }, false);
+        c.addEventListener('click', function(evt) {
+            mousePos = onClick(evt);
+            mousePosG = mousePos.x;
+            console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
+            checkInput(mousePos.x, mousePos.y);
+        }, false);
+    }
 }
 
 function onClick(evt){
