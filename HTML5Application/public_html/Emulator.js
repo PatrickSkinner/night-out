@@ -79,9 +79,9 @@ function drawCircle(x, y, r){
     ctx.stroke();
 }
 
-function drawText(x, y, text, c, s){
+function drawText(x, y, text, c, s, font){
     ctx.fillStyle = c;
-    ctx.font = s + "px Arial";
+    ctx.font = s + "px " + font;
     ctx.fillText(text, x, y);
 }
 
@@ -90,7 +90,7 @@ function drawImage(x, y, img){
 }
 
 function drawButton(x, y, w, h, colour, shadowColour){
-    drawRect(x + 5, y + 5, w, h,shadowColour);
+    drawRect(x + 5, y + 5, w, h, shadowColour);
     drawRect(x, y, w, h, colour);
 }
 

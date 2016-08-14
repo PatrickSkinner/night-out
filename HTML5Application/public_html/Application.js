@@ -71,17 +71,17 @@ function toNameList(data){
     var y = 5;
     
     for (x in data.list){
-        createButton(20, y, 280, 45, "#00bcd4", "#0095a5", data.function, obj = { venue: data.list[x], list: data.list });
+        createButton(20, y, 280, 45, "#00bcd4", "#0095a5", data.function, obj = { venue: data.list[x], list: data.list, data: data });
         y += 55;
     }
     
     createButton(20, 290, 280, 20, "#00bFd4", "#0095a5", goBack, null);
-    drawText(135, 308, "Back", "#FFFFFF", 20);
+    drawText(135, 308, "Back", "#FFFFFF", 20, "Arial");
 }
 
 function venueDisplay(data){
     lastFunction = toNameList;
-    lastParameter = data.list;
+    lastParameter = data.data;
     
     clearButtons();
     clear();
@@ -90,10 +90,10 @@ function venueDisplay(data){
     drawRect(20, 10, 280, 260, "#CCCCCC");
     
     createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", goBack, null);
-    drawText(35, 308, "Back", "#FFFFFF", 20);
+    drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
     
     createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", mapTest, obj = {lat: -45.864518, long: 170.510971});
-    drawText(145, 308, "View on Map", "#FFFFFF", 20);
+    drawText(145, 308, "View on Map", "#FFFFFF", 20, "Arial");
 
 }
 
@@ -120,6 +120,8 @@ function checkInput(x, y){
 function goBack(){
     clear();
     clearButtons();
+    
+    console.log(lastFunction);
     
     if(lastParameter !== null){
         lastFunction(lastParameter);
