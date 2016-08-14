@@ -119,6 +119,19 @@ function taxiDisplay(data){
     
     clearButtons();
     clear();
+    
+    drawRect(20 + 5, 10 + 5, 280, 260, "#666666");
+    drawRect(20, 10, 280, 260, "#CCCCCC");
+    
+    drawText(30, 40, data.venue.name + ":", "#FFFFFF", 26, "Arial");
+    
+    drawText(30, 70, data.venue.phone, "#FFFFFF", 22, "Arial");
+    
+    createButton(30, 90, 90, 30, "#00bFd4", "#0095a5", webRedirect, data.venue.webLink);
+    drawText(35, 113, "Website", "#FFFFFF", 22, "Arial");
+    
+    createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", goBack, null);
+    drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
 
 }
 
