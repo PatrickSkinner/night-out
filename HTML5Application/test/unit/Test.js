@@ -3,7 +3,12 @@ var button1,button2,buttons;
 MyTestCase = TestCase("MyTestCase");
 MyTestCase.prototype.setup = function (){  
     button1 = createButton(20, 20, 130, 130, "#00bcd4", "#0095a5", "Pubs", "#FFFFFF",null,null);
-    
+    var mainCanvas = document.createElement('canvas');
+    this.mainCanvas.id = 'MyCanvas';
+    this.mainCanvas.width="320"; 
+    this.mainCanvas.height="320"; 
+    this.mainCanvas.style.border = "1px solid grey";
+    document.body.appendChild(mainCanvas);
 };
 
 MyTestCase.prototype.testButtons = function() {
@@ -17,11 +22,11 @@ MyTestCase.prototype.testButtons = function() {
 };
 
 MyTestCase.prototype.testWithinBounds = function(){
-    assertTrue(withinBounds(100,100,90,90,15,15));
+    assertTrue("Should be founded within Bounds",withinBounds(100,100,90,90,15,15));
 };
 
 MyTestCase.prototype.testNotWithinBounds = function(){
-    assertFalse(withinBounds(100,100,100,100,30,30));
+    assertFalse("Should be not founded within bounds", withinBounds(100,100,100,100,30,30));
 };
 
 MyTestCase.prototype.testgetbuttons= function(){
@@ -42,7 +47,7 @@ MyTestCase.prototype.testCheckInput = function () {
    assertUndefined("on click function should be undefined",checkInput(11,22));
   };
 MyTestCase.prototype.testLoadData = function () {
-    assertObject("on click function should have been called",loadData("pub"));
+    assertObject("load data(pub) should be called",loadData("pub"));
 };
 
 MyTestCase.prototype.testPubLoad = function () {
@@ -67,6 +72,14 @@ MyTestCase.prototype.testTaxiLoad = function () {
   var taxi = getTaxiFile();
   assertArray("should have been the taxi array", taxi);
   assertEquals("Should contain the Blue Bubble Taxis", "Blue Bubble Taxis", taxi[0].name);
+};
+
+MyTestCase.prototype.testLoadAsserts = function () {
+    loadAssets();
+    assertEquals("Should be the pub image", imagePub, assets.SQUARE_Pub);
+    assertEquals("Should be the pub image", imageClub, assets.SQUARE_Club);
+    assertEquals("Should be the pub image", imageFood, assets.SQUARE_Food);
+    assertEquals("Should be the pub image", imageTaxi, assets.SQUARE_Taxi);
 };
 
 MyTestCase.prototype.tearDown = function (){
