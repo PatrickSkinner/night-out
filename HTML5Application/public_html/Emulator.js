@@ -1,6 +1,6 @@
 var c;
 var ctx;
-var buttons = {};
+var buttons = [];
 
 function createButton(x, y, w, h, c, sc, onClickFunction, data) {    
     var createdButton = createButtonObject(x, y, w, h, onClickFunction, data);    
@@ -35,7 +35,7 @@ function getButtons(){
 }
 
 function clearButtons(){
-    buttons = {};
+    buttons = [];
 }
 
 function init(){
