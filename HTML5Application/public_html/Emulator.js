@@ -9,8 +9,6 @@ function createButton(x, y, w, h, c, sc, onClickFunction, data) {
     buttons[x + "," + y] = createdButton;
 }
 
-
-
 function createButtonObject(x, y, w, h, onClickFunction, data) {
     var createdButton = {
         xLocation: x,
@@ -96,13 +94,18 @@ function drawButton(x, y, w, h, colour, shadowColour){
 }
 
 function mapTest(obj){
-    getLocation();
+    updateLocation();
+    obj = userPosition;
     var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + obj.lat + "," + obj.long +"&zoom=16&size=320x320"  + "&markers=color:red%7Clabel:C%7C" + obj.lat + "," + obj.long;
     var imageObj = new Image();
     imageObj.src = google_tile;
     imageObj.onload = function() {
         ctx.drawImage(imageObj, 0, 0);
     };
+}
+
+function drawMap(){
+    var map = document.createElement("div");
 }
 
 function clear(){
@@ -113,13 +116,12 @@ function drawTextBox(){
     
 }
 
-function getLocation() {
+function updateLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(function(position) {
+            userPosition = {lat: position.coords.latitude, long: position.coords.longitude};
+        });
     }
-}
-function showPosition(position) {
-    userPosition = {lat: position.coords.latitude, long: position.coords.longitude};
 }
 
 init();
