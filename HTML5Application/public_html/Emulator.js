@@ -95,7 +95,6 @@ function drawButton(x, y, w, h, colour, shadowColour){
 
 function mapTest(obj){
     updateLocation();
-    obj = userPosition;
     var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + obj.lat + "," + obj.long +"&zoom=16&size=320x320"  + "&markers=color:red%7Clabel:C%7C" + obj.lat + "," + obj.long;
     var imageObj = new Image();
     imageObj.src = google_tile;
