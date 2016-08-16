@@ -10,9 +10,27 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="JSON.js"></script>
+        
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            #myCanvas{
+                position: absolute;
+            }
+            #map {
+                width: 320px;
+                height: 320px;
+                position: absolute;
+            }
+        </style>
+        
     </head>
-    <body>
         <canvas id="myCanvas" width="320" height="320" style="border:1px solid grey;"></canvas>
+        <div id="map"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHBa0bw2ly4gPBRCSKdXukTxDpzj-BqJY"></script>
         <script src="Emulator.js"></script>
         <!--<script src="TestApp.js"></script>-->
         <script src="Application.js"></script>  

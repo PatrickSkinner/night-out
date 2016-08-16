@@ -163,4 +163,5 @@ function goBack(){
     lastFunction();
 }
 
+updateLocation();
 splashScreen();

@@ -39,6 +39,7 @@ function clearButtons(){
 
 function init(){
     c = document.getElementById("myCanvas");
+    document.getElementById('map').style.display = 'none';
     ctx = c.getContext("2d");
     c.addEventListener('click', function(evt) {
     mousePos = onClick(evt);
@@ -101,10 +102,17 @@ function mapTest(obj){
     imageObj.onload = function() {
         ctx.drawImage(imageObj, 0, 0);
     };
+    initMap();
 }
 
-function drawMap(){
-    var map = document.createElement("div");
+function initMap() {
+            // Create a map object and specify the DOM element for display.
+            document.getElementById('map').style.display = 'block';
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: userPosition.lat, lng: userPosition.long},
+                scrollwheel: false,
+                zoom: 8
+                });
 }
 
 function clear(){
