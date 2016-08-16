@@ -108,9 +108,8 @@ function venueDisplay(data){
     createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", goBack, null);
     drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
     
-    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", mapTest, obj = {lat: data.venue.latitude, long: data.venue.longitude});
+    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", drawMap, obj = {lat: data.venue.latitude, long: data.venue.longitude});
     drawText(145, 308, "View on Map", "#FFFFFF", 20, "Arial");
-
 }
 
 function taxiDisplay(data){
@@ -148,6 +147,14 @@ function checkInput(x, y){
             button.onClickFunction();
         }
     }
+}
+
+function drawMap(){
+    clear();
+    clearButtons();
+    
+    updateLocation();
+    initMap();
 }
 
 function goBack(){
