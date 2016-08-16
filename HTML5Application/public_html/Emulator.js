@@ -103,16 +103,6 @@ function mapTest(obj){
     };
 }
 
-function initMap() {
-    // Create a map object and specify the DOM element for display.
-    document.getElementById('map').style.display = 'block';
-    var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: userPosition.lat, lng: userPosition.long},
-        scrollwheel: false,
-        zoom: 8
-    });
-}
-
 function initDirection(targetLocation) {
     console.log(targetLocation);
     console.log(userPosition);
@@ -136,7 +126,7 @@ function initDirection(targetLocation) {
     
     var directionsService = new google.maps.DirectionsService();
     directionsService.route(request, function(response, status) {
-        if (status == 'OK') {
+        if (status === 'OK') {
             directionsDisplay.setDirections(response);
         }
     });
@@ -155,6 +145,8 @@ function updateLocation() {
         navigator.geolocation.getCurrentPosition(function(position) {
             userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
         });
+    } else {
+        throw "Geolocation Not Enabled.";
     }
 }
 
