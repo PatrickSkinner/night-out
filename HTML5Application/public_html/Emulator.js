@@ -1,7 +1,7 @@
 var c;
 var ctx;
 var buttons = [];
-var userPosition = {lat: 0, long: 0};
+var userPosition = {lat: 0, lng: 0};
 
 function createButton(x, y, w, h, c, sc, onClickFunction, data) {    
     var createdButton = createButtonObject(x, y, w, h, onClickFunction, data);    
@@ -113,6 +113,35 @@ function initMap() {
     });
 }
 
+function initDirection(targetLocation) {
+    console.log(targetLocation);
+    console.log(userPosition);
+    // Create a map object and specify the DOM element for display.
+    document.getElementById('map').style.display = 'block';
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: userPosition.lat, lng: userPosition.lng},
+        scrollwheel: false,
+        zoom: 8
+    });
+    
+    var directionsDisplay = new google.maps.DirectionsRenderer({
+        map: map
+    });
+    
+    var request = {
+        destination: targetLocation,
+        origin: userPosition,
+        travelMode: 'WALKING'
+    };
+    
+    var directionsService = new google.maps.DirectionsService();
+    directionsService.route(request, function(response, status) {
+        if (status == 'OK') {
+            directionsDisplay.setDirections(response);
+        }
+    });
+}
+
 function clear(){
     ctx.clearRect(0, 0, 320, 320);
 }
@@ -124,7 +153,7 @@ function drawTextBox(){
 function updateLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            userPosition = {lat: position.coords.latitude, long: position.coords.longitude};
+            userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
         });
     }
 }

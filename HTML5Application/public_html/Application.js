@@ -108,7 +108,7 @@ function venueDisplay(data){
     createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", goBack, null);
     drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
     
-    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", drawMap, obj = {lat: data.venue.latitude, long: data.venue.longitude});
+    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", drawMap, obj = {lat: data.venue.latitude, lng: data.venue.longitude});
     drawText(145, 308, "View on Map", "#FFFFFF", 20, "Arial");
 }
 
@@ -149,12 +149,12 @@ function checkInput(x, y){
     }
 }
 
-function drawMap(){
+function drawMap(data){
     clear();
     clearButtons();
     
     updateLocation();
-    initMap();
+    initDirection(data);
 }
 
 function goBack(){
