@@ -155,11 +155,10 @@ function drawMap(data){
     
     clear();
     clearButtons();
+    createButton(0, 300, 320, 20, "#00bFd4", "#0095a5", goBack, null);
     
     updateLocation();
     initDirection(data);
-    
-    createButton(0, 300, 320, 20, "#00bFd4", "#0095a5", goBack, null);
 }
 
 function goBack(){

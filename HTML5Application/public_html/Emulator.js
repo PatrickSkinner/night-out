@@ -44,7 +44,6 @@ function init(){
     c.addEventListener('click', function(evt) {
     mousePos = onClick(evt);
     mousePosG = mousePos.x;
-    console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
     checkInput(mousePos.x, mousePos.y);
     }, false);
     
@@ -104,14 +103,13 @@ function mapTest(obj){
 }
 
 function initDirection(targetLocation) {
-    console.log(targetLocation);
-    console.log(userPosition);
+
     // Create a map object and specify the DOM element for display.
     document.getElementById('map').style.display = 'block';
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: userPosition.lat, lng: userPosition.lng},
-        scrollwheel: false,
-        zoom: 8
+        scrollwheel: true,
+        zoom: 12
     });
     
     var directionsDisplay = new google.maps.DirectionsRenderer({
