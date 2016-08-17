@@ -2,6 +2,12 @@ var lastFunction;
 var lastParameter;
 var assets = {};
 
+/**
+ * 
+ * 
+ * @param {String} name - The
+ * @returns {unresolved}
+ */
 function loadData(name){
     if(name === "pub"){
         return getPubFile(); 
@@ -40,8 +46,12 @@ function loadAssets(data){
     
 }
 
+/**
+ * Display a static splash screen while loading assets, then move to main menu.
+ * 
+ * @returns {undefined}
+ */
 function splashScreen() {
-    
     imageSpalsh = new Image();
     imageSpalsh.src = 'Assets/Starting_Logo.png';
     imageSpalsh.onload = function () {
@@ -49,9 +59,13 @@ function splashScreen() {
     };
     loadAssets(getAssets());
     window.setTimeout(mainMenu, 2000);
-    
 }
 
+/**
+ * Draw the main menu, with four buttons, one for each list category.
+ * 
+ * @returns {undefined}
+ */
 function mainMenu() {
     clearButtons();
     clear();
@@ -67,9 +81,14 @@ function mainMenu() {
 
     createButton(170, 170, 130, 130, "#00bcd4", "#0095a5", toNameList, obj = { list: loadData("taxi"), function: taxiDisplay} );
     drawImage(170, 170, assets["SQUARE_Taxi"]);
-
 }
 
+/**
+ * Display a list of venues in a given category, list items can be clicked to go through to the venue display screen.
+ * 
+ * @param {Object} data - An object holding a function and a list of businesses as datafields.
+ * @returns {undefined}
+ */
 function toNameList(data){
     clearButtons();
     clear();
@@ -92,6 +111,12 @@ function toNameList(data){
     drawText(135, 308, "Back", "#FFFFFF", 20, "Arial");
 }
 
+/**
+ * Display the info for a given venue.
+ * 
+ * @param {Object} data - An object holding the details for a venue.
+ * @returns {undefined}
+ */
 function venueDisplay(data){
     lastFunction = toNameList;
     lastParameter = data.old;
@@ -115,7 +140,6 @@ function venueDisplay(data){
     createButton(20, 230, 280, 50, "#00bFd4", "#0095a5", drawMap, obj = {lat: data.venue.latitude, lng: data.venue.longitude, old: data});
     drawText(90, 265, "Get Directions", "#FFFFFF", 22, "Arial");
     
-    
     createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", goBack, null);
     drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
     
@@ -124,6 +148,12 @@ function venueDisplay(data){
     drawText(165, 308, "Website", "#FFFFFF", 20, "Arial");
 }
 
+/**
+ * Display the info for a given taxi company.
+ * 
+ * @param {Object} data - An object holding the details for a taxi company.
+ * @returns {undefined}
+ */
 function taxiDisplay(data){
     lastFunction = toNameList;
     lastParameter = data.old;
@@ -146,10 +176,6 @@ function taxiDisplay(data){
 
 }
 
-function webRedirect(url){
-    window.location = url;
-}
-
 // Check if input is within button boundry, respond appropriately.
 function checkInput(x, y){
     buttons = getButtons();
@@ -161,6 +187,12 @@ function checkInput(x, y){
     }
 }
 
+/**
+ * Clear the cavnas and draw a map on top giving users directions to the chosen destinate.
+ * 
+ * @param {type} data - An object holding the latitude and longitude on the desired destination.
+ * @returns {undefined}
+ */
 function drawMap(data){
     lastFunction = venueDisplay;
     lastParameter = data.old;
@@ -173,6 +205,11 @@ function drawMap(data){
     initDirection(data);
 }
 
+/**
+ * Call the function currently stored in the lastFunction variable, usually the previous page visited.
+ * 
+ * @returns {undefined}
+ */
 function goBack(){
     clear();
     clearButtons();

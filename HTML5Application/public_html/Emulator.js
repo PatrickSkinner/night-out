@@ -5,6 +5,7 @@ var userPosition = {lat: 0, lng: 0};
 
 /**
  * Create a new button object and draw it to the screen.
+ * 
  * @param {int} x - X coordinate of top left corner.
  * @param {int} y - Y coordinate of top left corner.
  * @param {int} w - Width of button, in pixels.
@@ -23,6 +24,7 @@ function createButton(x, y, w, h, c, sc, onClickFunction, data) {
 
 /**
  * Create a new button object no associated visual element.
+ * 
  * @param {int} x - X coordinate of top left corner.
  * @param {int} y - Y coordinate of top left corner.
  * @param {int} w - Width of button, in pixels.
@@ -46,6 +48,7 @@ function createButtonObject(x, y, w, h, onClickFunction, data) {
 
 /**
  * Check if a mouse click is within the bounds of a button.
+ * 
  * @param {int} x - X coordinate of mouse click.
  * @param {int} y - Y coordinate of mouse click.
  * @param {int} objX - X coordinate of the buttons top left corner.
@@ -63,14 +66,16 @@ function withinBounds (x, y, objX, objY, objW, objH) {
 
 /**
  * Return a list of all buttons that are currently active.
- * @returns {Array|buttons|button1} - Access the array of buttons currently on screen.
+ * 
+ * @returns {Array|buttons|button1} - An array of all the buttons currently on screen.
  */
 function getButtons(){
     return buttons;
 }
 
 /**
- * Clear the array of buttons.
+ * Clear all currently active buttons.
+ * 
  * @returns {undefined}
  */
 function clearButtons(){
@@ -79,13 +84,13 @@ function clearButtons(){
 
 /**
  * Return the x, y coordinates of a mouse click.
+ * 
  * @param {type} evt
  * @returns {onClick.EmulatorAnonym$0} - Return an object with teh x and y coordinates of the mouse click as data fields.
  */
 function onClick(evt){
     var rect = c.getBoundingClientRect(), root = document.documentElement;
 
-    // return relative mouse position
     var mouseX = evt.clientX - rect.left - root.scrollLeft;
     var mouseY = evt.clientY - rect.top - root.scrollTop;
     return {
@@ -96,6 +101,7 @@ function onClick(evt){
 
 /**
  * Draw a rectangle.
+ * 
  * @param {int} x - x coordinate of rectangles top left corner.
  * @param {int} y - y coordinate of rectangles top left corner.
  * @param {int} w - width of rectangle.
@@ -110,6 +116,7 @@ function drawRect(x, y, w, h, c){
 
 /**
  * Draw a line between two points.
+ * 
  * @param {int} x1 - x coordinate of lines start point.
  * @param {int} y1 - y coordinate of lines start point.
  * @param {int} x2 - x coordinate of lines end point.
@@ -124,6 +131,7 @@ function drawLine(x1, y1, x2, y2){
 
 /**
  * Draw a circle.
+ * 
  * @param {int} x - x coordinate of circles center.
  * @param {int} y - y coordinate of circles center.
  * @param {int} r - radius of the circle.
@@ -137,6 +145,7 @@ function drawCircle(x, y, r){
 
 /**
  * Draw a string of text.
+ * 
  * @param {int} x - x coordinate of text.
  * @param {int} y - y coordinate of text.
  * @param {string} text - String to be displayed.
@@ -153,9 +162,10 @@ function drawText(x, y, text, c, s, font){
 
 /**
  * Draw an image to screen.
+ * 
  * @param {int} x - x coordinate of images top left corner.
  * @param {int} y - y coordinate of images top left corner.
- * @param {} img - The image to be drawn.
+ * @param {Image} img - The image to be drawn.
  * @returns {undefined}
  */
 function drawImage(x, y, img){
@@ -164,6 +174,7 @@ function drawImage(x, y, img){
 
 /**
  * Draw a button with a standard style.
+ * 
  * @param {int} x - X coordinate of top left corner.
  * @param {int} y - Y coordinate of top left corner.
  * @param {int} w - Width of button, in pixels.
@@ -179,6 +190,7 @@ function drawButton(x, y, w, h, colour, shadowColour){
 
 /**
  * Clear the canvas.
+ * 
  * @returns {undefined}
  */
 function clear(){
@@ -187,6 +199,7 @@ function clear(){
 
 /**
  * Draw a static map with a marker on the given location.
+ * 
  * @param {object} obj - An object holding the longitude and latitude of a location as data fields.
  * @returns {undefined}
  */
@@ -201,6 +214,7 @@ function mapTest(obj){
 
 /**
  * Create a dynamic map with a route draw between the userLocation and the given location.
+ * 
  * @param {type} targetLocation - An objecting holding the longitude and latitude of a location as data fields.
  * @returns {undefined}
  */
@@ -234,6 +248,7 @@ function initDirection(targetLocation) {
 
 /**
  * Update the userPosition object with the browsers geolocation capabilities.
+ * 
  * @returns {undefined}
  */
 function updateLocation() {
@@ -255,7 +270,18 @@ function updateLocation() {
 }
 
 /**
+ * Open a given URL in a new tab.
+ * 
+ * @param {string} url
+ * @returns {undefined}
+ */
+function webRedirect(url){
+    window.open(url);
+}
+
+/**
  * Get canvas and mapDiv elements, added button click listener.
+ * 
  * @returns {undefined}
  */
 function init(){
