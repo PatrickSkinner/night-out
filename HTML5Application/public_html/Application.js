@@ -71,7 +71,7 @@ function toNameList(data){
     var y = 10;
     
     for (x in data.list){
-        createButton(20, y, 280, 45, "#00bcd4", "#0095a5", data.function, obj = { venue: data.list[x], list: data.list});
+        createButton(20, y, 280, 45, "#00bcd4", "#0095a5", data.function, obj = { venue: data.list[x], list: data.list, old: data});
         drawText(30, (y + 33), data.list[x].name, "#FFFFFF", 26, "Arial");
         y += 55;
     }
@@ -82,7 +82,7 @@ function toNameList(data){
 
 function venueDisplay(data){
     lastFunction = toNameList;
-    lastParameter = data.list;
+    lastParameter = data.old;
     
     clearButtons();
     clear();
@@ -108,14 +108,13 @@ function venueDisplay(data){
     createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", goBack, null);
     drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
     
-    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", mapTest, obj = {lat: data.venue.latitude, long: data.venue.longitude});
+    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", drawMap, obj = {lat: data.venue.latitude, lng: data.venue.longitude, old: data});
     drawText(145, 308, "View on Map", "#FFFFFF", 20, "Arial");
-
 }
 
 function taxiDisplay(data){
     lastFunction = toNameList;
-    lastParameter = data.list;
+    lastParameter = data.old;
     
     clearButtons();
     clear();
@@ -150,16 +149,28 @@ function checkInput(x, y){
     }
 }
 
+function drawMap(data){
+    lastFunction = venueDisplay;
+    lastParameter = data.old;
+    
+    clear();
+    clearButtons();
+    createButton(0, 300, 320, 20, "#00bFd4", "#0095a5", goBack, null);
+    
+    updateLocation();
+    initDirection(data);
+}
+
 function goBack(){
     clear();
     clearButtons();
-    
-    
-    
+    document.getElementById('map').style.display = 'none';
+
     if(lastParameter !== null){
         lastFunction(lastParameter);
+
     }else{
-        lastFunction();
+      lastFunction();
     }
 }
 

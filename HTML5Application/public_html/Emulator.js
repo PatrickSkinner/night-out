@@ -1,7 +1,7 @@
 var c;
 var ctx;
 var buttons = [];
-var userPosition = {lat: 0, long: 0};
+var userPosition = {lat: 0, lng: 0};
 
 function createButton(x, y, w, h, c, sc, onClickFunction, data) {    
     var createdButton = createButtonObject(x, y, w, h, onClickFunction, data);    
@@ -44,7 +44,6 @@ function init(){
     c.addEventListener('click', function(evt) {
     mousePos = onClick(evt);
     mousePosG = mousePos.x;
-    console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
     checkInput(mousePos.x, mousePos.y);
     }, false);
     
@@ -95,24 +94,40 @@ function drawButton(x, y, w, h, colour, shadowColour){
 }
 
 function mapTest(obj){
-    updateLocation();
     var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + obj.lat + "," + obj.long +"&zoom=16&size=320x320"  + "&markers=color:red%7Clabel:C%7C" + obj.lat + "," + obj.long;
     var imageObj = new Image();
     imageObj.src = google_tile;
     imageObj.onload = function() {
         ctx.drawImage(imageObj, 0, 0);
     };
-    initMap();
 }
 
-function initMap() {
-            // Create a map object and specify the DOM element for display.
-            document.getElementById('map').style.display = 'block';
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: userPosition.lat, lng: userPosition.long},
-                scrollwheel: false,
-                zoom: 8
-                });
+function initDirection(targetLocation) {
+
+    // Create a map object and specify the DOM element for display.
+    document.getElementById('map').style.display = 'block';
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: userPosition.lat, lng: userPosition.lng},
+        scrollwheel: true,
+        zoom: 12
+    });
+    
+    var directionsDisplay = new google.maps.DirectionsRenderer({
+        map: map
+    });
+    
+    var request = {
+        destination: targetLocation,
+        origin: userPosition,
+        travelMode: 'WALKING'
+    };
+    
+    var directionsService = new google.maps.DirectionsService();
+    directionsService.route(request, function(response, status) {
+        if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+        }
+    });
 }
 
 function clear(){
@@ -126,9 +141,11 @@ function drawTextBox(){
 function updateLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            userPosition = {lat: position.coords.latitude, long: position.coords.longitude};
+            userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
         });
-    } 
+    } else {
+        throw "Geolocation Not Enabled.";
+    }
 }
 
 init();
