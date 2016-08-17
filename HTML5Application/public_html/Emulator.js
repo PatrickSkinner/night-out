@@ -128,7 +128,7 @@ function updateLocation() {
         navigator.geolocation.getCurrentPosition(function(position) {
             userPosition = {lat: position.coords.latitude, long: position.coords.longitude};
         });
-    }
+    } 
 }
 
 init();

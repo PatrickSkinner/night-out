@@ -154,13 +154,13 @@ function goBack(){
     clear();
     clearButtons();
     
-    console.log(lastFunction);
+    
     
     if(lastParameter !== null){
         lastFunction(lastParameter);
+    }else{
+        lastFunction();
     }
-    
-    lastFunction();
 }
 
 updateLocation();
