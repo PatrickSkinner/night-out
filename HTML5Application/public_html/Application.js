@@ -176,8 +176,15 @@ function taxiDisplay(data){
 
 }
 
-// Check if input is within button boundry, respond appropriately.
+/**
+ * Check if input is within button boundry, respond appropriately.
+ * 
+ * @param {int} x - The x coordinate of the mouse click.
+ * @param {int} y - The y coordinate of the mouse click.
+ * @returns {undefined}
+ */
 function checkInput(x, y){
+    console.log(x + ", " + y);
     buttons = getButtons();
     for (var key in buttons) {
         button = buttons[key];
