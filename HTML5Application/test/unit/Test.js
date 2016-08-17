@@ -87,12 +87,18 @@ MyTestCase.prototype.testLoadAsserts = function () {
 };
 
 MyTestCase.prototype.testGeoLocationPass = function () {
-   
-    
-};
+    updateLocation();
+    assertNotEquals("Should grab loaction", [0,0], userPosition);
+ };
 
 MyTestCase.prototype.testGeoLocationFail = function () {
-    
+ try {
+     updateLocation.throw();
+ } 
+ catch (err) {
+     Throw = true;
+}
+assertTrue("should have thrown an exception", Throw);
     
 };
 

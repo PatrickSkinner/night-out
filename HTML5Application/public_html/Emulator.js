@@ -139,12 +139,20 @@ function drawTextBox(){
 }
 
 function updateLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+    var message;
+    try {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
             userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
-        });
-    } else {
-        throw "Geolocation Not Enabled.";
+            });
+        } else {
+                
+                throw "Geolocation Not Enabled.";
+
+        }
+    }
+    catch (err) {
+        message.innerHTML = "geolocation not enabled";
     }
 }
 
