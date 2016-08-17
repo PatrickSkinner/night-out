@@ -42,12 +42,16 @@ MyTestCase.prototype.testClearButtons = function() {
    assertEquals("Should have zero buttons in the array",0,buttons.length);
 };
 
+MyTestCase.prototype.testbuttonsZero = function() {
+  assertEquals("Should have no buttons in the array to start",0 ,buttons.length);  
+};
+
 MyTestCase.prototype.testCheckInput = function () {
    buttons[0] = button1;
    assertUndefined("on click function should be undefined",checkInput(11,22));
   };
 MyTestCase.prototype.testLoadData = function () {
-    assertObject("load data(pub) should be called",loadData("pub"));
+     assertObject("load data(pub) should be called",loadData("pub"));
 };
 
 MyTestCase.prototype.testPubLoad = function () {
@@ -80,6 +84,16 @@ MyTestCase.prototype.testLoadAsserts = function () {
     assertEquals("Should be the pub image", imageClub, assets.SQUARE_Club);
     assertEquals("Should be the pub image", imageFood, assets.SQUARE_Food);
     assertEquals("Should be the pub image", imageTaxi, assets.SQUARE_Taxi);
+};
+
+MyTestCase.prototype.testGeoLocationPass = function () {
+   
+    
+};
+
+MyTestCase.prototype.testGeoLocationFail = function () {
+    
+    
 };
 
 MyTestCase.prototype.tearDown = function (){
