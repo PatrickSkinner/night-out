@@ -14,32 +14,42 @@ function loadData(name){
     }
 }
 
-function loadAssets(){
-    imagePub = new Image();
-    imagePub.src = 'Assets/Images/Buttons_Images/SQUARE_Pub.png';
-    assets["SQUARE_Pub"] = imagePub;
+function loadAssets(data){
+//    imagePub = new Image();
+//    imagePub.src = "Assets/Images/Buttons_Images/SQUARE_Pub.png";
+//    assets["SQUARE_Pub"] = imagePub;
+//    
+//    imageClub = new Image();
+//    imageClub.src = "Assets/Images/Buttons_Images/SQUARE_Club.png";
+//    assets["SQUARE_Club"] = imageClub;
+//    
+//    imageFood = new Image();
+//    imageFood.src = "Assets/Images/Buttons_Images/SQUARE_Food.png";
+//    assets["SQUARE_Food"] = imageFood;
+//    
+//    imageTaxi = new Image();
+//    imageTaxi.src = "Assets/Images/Buttons_Images/SQUARE_Taxi.png";
+//    assets["SQUARE_Taxi"] = imageTaxi;
     
-    imageClub = new Image();
-    imageClub.src = 'Assets/Images/Buttons_Images/SQUARE_Club.png';
-    assets["SQUARE_Club"] = imageClub;
+    var x;
+    for (x in data.assets){
+       image = new Image();
+       image.src = data.assets[x].filepath;
+       assets[data.assets[x].name] = image;
+    }
     
-    imageFood = new Image();
-    imageFood.src = 'Assets/Images/Buttons_Images/SQUARE_Food.png';
-    assets["SQUARE_Food"] = imageFood;
-    
-    imageTaxi = new Image();
-    imageTaxi.src = 'Assets/Images/Buttons_Images/SQUARE_Taxi.png';
-    assets["SQUARE_Taxi"] = imageTaxi;
 }
 
 function splashScreen() {
-    image = new Image();
-    image.src = 'Assets/Starting_Logo.png';
-    image.onload = function () {
-        drawImage(0, 0, image);
+    
+    imageSpalsh = new Image();
+    imageSpalsh.src = 'Assets/Starting_Logo.png';
+    imageSpalsh.onload = function () {
+        drawImage(0, 0, imageSpalsh);
     };
-    loadAssets();
-    window.setTimeout(mainMenu, 1000);
+    loadAssets(getAssets());
+    window.setTimeout(mainMenu, 2000);
+    
 }
 
 function mainMenu() {
@@ -90,7 +100,7 @@ function venueDisplay(data){
     drawRect(20 + 5, 10 + 5, 280, 260, "#666666");
     drawRect(20, 10, 280, 260, "#CCCCCC");
     
-    drawText(30, 40, data.venue.name + ":", "#FFFFFF", 26, "Arial");
+    drawText(30, 40, data.venue.name + ":", "#00bFd4", 26, "Arial");
     
     drawText(30, 70, data.venue.address, "#FFFFFF", 22, "Arial");
     drawText(30, 95, data.venue.city, "#FFFFFF", 22, "Arial");
@@ -100,16 +110,16 @@ function venueDisplay(data){
     
     drawText(30, 190, "Rating: " + data.venue.rating, "#FFFFFF", 22, "Arial");
     
-    createButton(30, 200, 90, 30, "#00bFd4", "#0095a5", webRedirect, data.venue.webLink);
-    drawText(35, 223, "Website", "#FFFFFF", 22, "Arial");
+    createButton(20, 230, 280, 50, "#00bFd4", "#0095a5", drawMap, obj = {lat: data.venue.latitude, lng: data.venue.longitude, old: data});
+    drawText(90, 265, "Get Directions", "#FFFFFF", 22, "Arial");
     
-    drawText(25, 265, "Click box for description", "#FFFFFF", 16, "Arial");
     
     createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", goBack, null);
     drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
     
-    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", drawMap, obj = {lat: data.venue.latitude, lng: data.venue.longitude, old: data});
-    drawText(145, 308, "View on Map", "#FFFFFF", 20, "Arial");
+    //createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", mapTest, obj = {lat: data.venue.latitude, long: data.venue.longitude});
+    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", webRedirect, data.venue.webLink);
+    drawText(165, 308, "Website", "#FFFFFF", 20, "Arial");
 }
 
 function taxiDisplay(data){
