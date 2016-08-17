@@ -82,7 +82,9 @@ function toNameList(data){
     
     for (x in data.list){
         createButton(20, y, 280, 45, "#00bcd4", "#0095a5", data.function, obj = { venue: data.list[x], list: data.list, old: data});
-        drawText(30, (y + 33), data.list[x].name, "#FFFFFF", 26, "Arial");
+        drawImage(20, y, assets[data.list[x].name]);
+        drawText(245, (y + 35), "Far", "#000000", 18, "Arial");
+        //drawText(30, (y + 33), data.list[x].name, "#FFFFFF", 26, "Arial");
         y += 55;
     }
     

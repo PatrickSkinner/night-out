@@ -62,24 +62,24 @@ var Images = {
         "filepath": "Assets/Images/List_Items_BkGrnd_Images/Clubs/TheBreak.png"
         },
         {
-        "name": "Dost",
-        "filepath": "Assets/Images/List_Items_BkGrnd_Images/Food/Dost.png"
-        },
-        {
         "name": "McDonalds",
         "filepath": "Assets/Images/List_Items_BkGrnd_Images/Food/Mcdonalds.png"
         },
         {
-        "name": "Night & Day",
-        "filepath": "Assets/Images/List_Items_BkGrnd_Images/Food/NightDay.png"
-        },
-        {
-        "name": "PitaPit",
-        "filepath": "Assets/Images/List_Items_BkGrnd_Images/Food/PitaPit.png"
+        "name": "Dost Turkish Cafe",
+        "filepath": "Assets/Images/List_Items_BkGrnd_Images/Food/Dost.png"
         },
         {
         "name": "Velvet Burger",
         "filepath": "Assets/Images/List_Items_BkGrnd_Images/Food/VelvetBurger.png"
+        },
+        {
+        "name": "Pita Pit",
+        "filepath": "Assets/Images/List_Items_BkGrnd_Images/Food/PitaPit.png"
+        },
+        {
+        "name": "Night n Day",
+        "filepath": "Assets/Images/List_Items_BkGrnd_Images/Food/NightDay.png"
         },
         {
         "name": "Blue Bubble Taxis",
