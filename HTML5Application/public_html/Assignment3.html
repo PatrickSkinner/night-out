@@ -6,14 +6,242 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Assignment 3</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
-    
+
     <body>
-            <h1>Emulator Interface</h1>
-            <p></p>
+        <h1> Assignment 3 </h1>
+        <h2>Matthew Lang
+            Patrick Skinner
+            Cassidy Mowat
+            Josiah Hunt
+            Dylan Pringle
+        </h2>
+        <h2>Emulator Interface</h2>
+        <p>
+        <p>/**<br>
+            * Create a new button object and draw it to the screen.<br>
+            * <br>
+            * @param {int} x - X coordinate of top left corner.<br>
+            * @param {int} y - Y coordinate of top left corner.<br>
+            * @param {int} w - Width of button, in pixels.<br>
+            * @param {int} h - Height of button, in pixels.<br>
+            * @param {string} c - Color of the button. as a hex value.<br>
+            * @param {string} sc - Color of the buttons shadow. as a hex value.<br>
+            * @param {function} onClickFunction - The function to be called when the button is clicked.<br>
+            * @param {object} data - An object containing all the parameters of the function as data fields.<br>
+            * @returns {undefined}<br>
+            */<br>
+            function createButton(x, y, w, h, c, sc, onClickFunction, data) {}<br>
+        </p>
+        <p>
+            /**<br>
+            * Create a new button object no associated visual element.<br>
+            * <br>
+            * @param {int} x - X coordinate of top left corner.<br>
+            * @param {int} y - Y coordinate of top left corner.<br>
+            * @param {int} w - Width of button, in pixels.<br>
+            * @param {int} h - Height of button, in pixels.<br>
+            * @param {function} onClickFunction - The function to be called when the button is clicked.<br>
+            * @param {object} data - An object containing all the parameters of the function as data fields.<br>
+            * @returns {createButtonObject.createdButton} - Return a reference to the created button object.<br>
+            */<br>
+            function createButtonObject(x, y, w, h, onClickFunction, data) {}<br>
+        </p>
+        <p>
+            /**<br>
+            * Check if a mouse click is within the bounds of a button.<br>
+            * <br>
+            * @param {int} x - X coordinate of mouse click.<br>
+            * @param {int} y - Y coordinate of mouse click.<br>
+            * @param {int} objX - X coordinate of the buttons top left corner.<br>
+            * @param {int} objY - Y coordinate of the buttons top left corner.<br>
+            * @param {int} objW - Width of button, in pixels.<br>
+            * @param {int} objH - Height of button, in pixels.<br>
+            * @returns {Boolean} - True if the mouse click was within the the bounds of a button.<br>
+            */<br>
+            function withinBounds (x, y, objX, objY, objW, objH) {}<br>
+        </p>
+        <p>
+            /**<br>
+            * Return a list of all buttons that are currently active.<br>
+            * <br>
+            * @returns {Array|buttons|button1} - An array of all the buttons currently on screen.<br>
+            */<br>
+            function getButtons(){}<br>
+        </p>
+        <p>
+            /**<br>
+            * Clear all currently active buttons.<br>
+            * <br>
+            * @returns {undefined}<br>
+            */<br>
+            function clearButtons(){}<br>
+        </p>
+        <p>
+            /**<br>
+            * Return the x, y coordinates of a mouse click.<br>
+            * <br>
+            * @param {type} evt<br>
+            * @returns {onClick.EmulatorAnonym$0} - Return an object with teh x and y coordinates of the mouse click as data fields.<br>
+            */<br>
+            function onClick(evt){}<br>
+        </p>
+        <p>
+            /**<br>
+            * Draw a rectangle.<br>
+            * <br>
+            * @param {int} x - x coordinate of rectangles top left corner.<br>
+            * @param {int} y - y coordinate of rectangles top left corner.<br>
+            * @param {int} w - width of rectangle.<br>
+            * @param {int} h - height of rectangle.<br>
+            * @param {String} c - Color of the rectangle, as a hex value.<br>
+            * @returns {undefined}<br>
+            */<br>
+            function drawRect(x, y, w, h, c){}<br>
+        </p>
+        <p>
+            /**<br>
+            * Draw a line between two points.<br>
+            * <br>
+            * @param {int} x1 - x coordinate of lines start point.<br>
+            * @param {int} y1 - y coordinate of lines start point.<br>
+            * @param {int} x2 - x coordinate of lines end point.<br>
+            * @param {int} y2 - y coordinate of lines end point.<br>
+            * @returns {undefined}<br>
+            */<br>
+            function drawLine(x1, y1, x2, y2){}<br>
+        </p>
+        <p>
+            /**<br>
+            * Draw a circle.<br>
+            * <br>
+            * @param {int} x - x coordinate of circles center.<br>
+            * @param {int} y - y coordinate of circles center.<br>
+            * @param {int} r - radius of the circle.<br>
+            * @returns {undefined}<br>
+            */<br>
+            function drawCircle(x, y, r){}<br>
+        </p>
+        <p>
+            /**<br>
+            * Draw a string of text.<br>
+            * <br>
+            * @param {int} x - x coordinate of text.<br>
+            * @param {int} y - y coordinate of text.<br>
+            * @param {string} text - String to be displayed.<br>
+            * @param {string} c - Color of text as a hex value.<br>
+            * @param {int} s - Point size of text.<br>
+            * @param {string} font - Desired font.<br>
+            * @returns {undefined}<br>
+            */<br>
+            function drawText(x, y, text, c, s, font){}<br>
+        </p>
+        <p>
+            /**<br>
+            * Draw an image to screen.<br>
+            * <br>
+            * @param {int} x - x coordinate of images top left corner.<br>
+            * @param {int} y - y coordinate of images top left corner.<br>
+            * @param {Image} img - The image to be drawn.<br>
+            * @returns {undefined}<br>
+            */<br>
+            function drawImage(x, y, img){}<br>
+        </p>
+        <p>
+            /**<br>
+            * Draw a button with a standard style.<br>
+            * <br>
+            * @param {int} x - X coordinate of top left corner.<br>
+            * @param {int} y - Y coordinate of top left corner.<br>
+            * @param {int} w - Width of button, in pixels.<br>
+            * @param {int} h - Height of button, in pixels.<br>
+            * @param {string} colour - Color of the button. as a hex value.<br>
+            * @param {string} shadowColour - Color of the buttons shadow. as a hex value.<br>
+            * @returns {undefined}<br>
+            */<br>
+            function drawButton(x, y, w, h, colour, shadowColour){}<br>
+        </p>
+        <p>
+            /**<br>
+            * Clear the canvas.<br>
+            * <br>
+            * @returns {undefined}<br>
+            */<br>
+            function clear(){}<br>
+        </p>
+        <p>
+            /**<br>
+            * Draw a static map with a marker on the given location.<br>
+            * <br>
+            * @param {object} obj - An object holding the longitude and latitude of a location as data fields.<br>
+            * @returns {undefined}<br>
+            */<br>
+            function mapTest(obj){}<br>
+        </p>
+        <p>
+            /**<br>
+            * Create a dynamic map with a route draw between the userLocation and the given location.<br>
+            * <br>
+            * @param {type} targetLocation - An objecting holding the longitude and latitude of a location as data fields.<br>
+            * @returns {undefined}<br>
+            */<br>
+            function initDirection(targetLocation) {}<br>
+        </p>
+        <p>
+            /**<br>
+            * Update the userPosition object with the browsers geolocation capabilities.<br>
+            * <br>
+            * @returns {undefined}<br>
+            */<br>
+            function updateLocation() {}<br>
+        </p>
+        <p>
+            /**<br>
+            * Open a given URL in a new tab.<br>
+            * <br>
+            * @param {string} url<br>
+            * @returns {undefined}<br>
+            */<br>
+            function webRedirect(url){}<br>
+        </p>
+        <p>
+            /**<br>
+            * Get canvas and mapDiv elements, added button click listener.<br>
+            * <br>
+            * @returns {undefined}<br>
+            */<br>
+            function init(){}<br>
+        </p>
+        <p> To use the emulator, link the application's script name in the index.html file and load the index.html to run it </p>
+            
+
+
+        <h2> How the Application works </h2>
+        <p>
+            Load the Index.html file, this runs the emulator which in turns loads the application. The application is simple in use, First off it gives you four 
+            different options, this includes Food, Pub, Clubs and Taxi. You can click on any of them which loads up the next list. This includes a set of different 
+            options that the user can select, this shows a link to the selected option, and a directions button that loads a map with directions to the option from your 
+            current position. Back buttons are on every screen allowing the user to get back to the first four main options. 
+        </p>
+      
+        
+        <h2>Tools we used</h2>
+        <p>
+            We used Netbeans, this was our ide which was very useful using the git function of the ide. This allowed us to use version control 
+            very effectively and often which helped great with us working on different parts of the application and emulator. Also with Netbeans the built 
+            in JSTestDriver service which was the library we used to create the test cases and run the emulator and application unit tests and run them in different browsers
+            such as Firefox, safari and Chrome seemly. //need to add some more tools if we used them. 
+        </p>
+        
+        <h2>Our experience </h2>
+        <p>
+            Matthew Lang
+            The differences of Making test cases in a new language was a new experience, it was hard not knowing what could work in the tests and how i could try to break the
+            functions i was given to test. Also working with a large group and with git was very intreseing and getting everyone to meet up was a hard task.
+        </p>
     </body>
 </html>
