@@ -209,6 +209,7 @@ function drawMap(data){
     createButton(0, 300, 320, 20, "#00bFd4", "#0095a5", goBack, null);
     
     updateLocation();
+    getDistance(data);
     initDirection(data);
 }
 

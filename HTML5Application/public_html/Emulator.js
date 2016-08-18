@@ -276,7 +276,7 @@ function updateLocation() {
  * @returns {Number}
  */
 function getDistance(destination){
-    return google.maps.geometry.spherical.computeDistanceBetween(userPosition, destination) / 1000;
+    return google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(userPosition.lat, userPosition.lng, true), new google.maps.LatLng(destination.lat, destination.lng, true));
 }
 
 /**
