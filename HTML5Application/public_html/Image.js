@@ -167,11 +167,15 @@ var Images = {
         },
         {
             "name": "CityUnitedBack",
-            "filepath": "Assets/Images/VenueSelectionBckGrnds/Taxis/CityBubble.png"
+            "filepath": "Assets/Images/VenueSelectionBckGrnds/Taxis/CityUnited.png"
         },
         {
             "name": "SouthernTaxisBack",
             "filepath": "Assets/Images/VenueSelectionBckGrnds/Taxis/SouthernTaxis.png"
+        },
+        {
+            "name": "getWebsite",
+            "filepath": "Assets/Images/WebsiteButton/WebsiteButton.png"
         }
     ]
 };
