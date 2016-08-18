@@ -198,7 +198,7 @@ function clear(){
 }
 
 /**
- * Draw a static map with a marker on the given location.
+ * Draw a static map with a marker on the given location to the canvas.
  * 
  * @param {object} obj - An object holding the longitude and latitude of a location as data fields.
  * @returns {undefined}
@@ -267,6 +267,16 @@ function updateLocation() {
     catch (err) {
         message.innerHTML = "geolocation not enabled";
     }
+}
+
+/**
+ * Return the distance to a destination in meters.
+ * 
+ * @param {Object} destination - An object holding the latitude and longitude of a destination as data fields.
+ * @returns {Number}
+ */
+function getDistance(destination){
+    return google.maps.geometry.spherical.computeDistanceBetween(userPosition, destination) / 1000;
 }
 
 /**
