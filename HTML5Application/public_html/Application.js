@@ -52,10 +52,10 @@ function loadAssets(data){
  * @returns {undefined}
  */
 function splashScreen() {
-    imageSpalsh = new Image();
-    imageSpalsh.src = 'Assets/Starting_Logo.png';
-    imageSpalsh.onload = function () {
-        drawImage(0, 0, imageSpalsh);
+    imageSplash = new Image();
+    imageSplash.src = 'Assets/Starting_Logo.png';
+    imageSplash.onload = function () {
+        drawImage(0, 0, imageSplash);
     };
     loadAssets(getAssets());
     window.setTimeout(mainMenu, 2000);
@@ -102,7 +102,7 @@ function toNameList(data){
     for (x in data.list){
         createButton(20, y, 280, 45, "#00bcd4", "#0095a5", data.function, obj = { venue: data.list[x], list: data.list, old: data});
         drawImage(20, y, assets[data.list[x].name]);
-        drawText(245, (y + 35), "Far", "#000000", 18, "Arial");
+        drawText(245, (y + 35), getDistance({lat: data.list[x].latitude, lng: data.list[x].longitude}), "#000000", 18, "Arial");
         //drawText(30, (y + 33), data.list[x].name, "#FFFFFF", 26, "Arial");
         y += 55;
     }
@@ -124,8 +124,9 @@ function venueDisplay(data){
     clearButtons();
     clear();
     
-    drawRect(20 + 5, 10 + 5, 280, 260, "#666666");
-    drawRect(20, 10, 280, 260, "#CCCCCC");
+    drawImage(20, 10, assets[data.venue.name + " Back"]);
+    //drawRect(20 + 5, 10 + 5, 280, 260, "#666666");
+    //drawRect(20, 10, 280, 260, "#CCCCCC");
     
     drawText(30, 40, data.venue.name + ":", "#00bFd4", 26, "Arial");
     
@@ -138,6 +139,7 @@ function venueDisplay(data){
     drawText(30, 190, "Rating: " + data.venue.rating, "#FFFFFF", 22, "Arial");
     
     createButton(20, 230, 280, 50, "#00bFd4", "#0095a5", drawMap, obj = {lat: data.venue.latitude, lng: data.venue.longitude, old: data});
+    drawImage(20, 230, assets["GetDirectionsButton"]);
     drawText(90, 265, "Get Directions", "#FFFFFF", 22, "Arial");
     
     createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", goBack, null);
