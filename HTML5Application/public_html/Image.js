@@ -92,6 +92,86 @@ var Images = {
         {
         "name": "Southern Taxis",
         "filepath": "Assets/Images/List_Items_BkGrnd_Images/Taxis/SouthernTaxis.png"
+        },
+        {
+        "name": "GetDirectionsButton",
+        "filepath": "Assets/Images/GetDirectionsButton/GetDirectionsButton.png"
+        },
+        {
+            "name": "Back",
+            "filepath": "Assets/Images/Buttons_Images/Back_button.png"
+        },
+        {
+            "name": "10BarBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Clubs/10Bar.png"
+        },
+        {
+            "name": "BoogieBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Clubs/Boogie.png"
+        },
+        {
+            "name": "BrimstoneBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Clubs/Brimstone.png"
+        },
+        {
+            "name": "SuburbiaBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Clubs/Suburbia.png"
+        },
+        {
+            "name": "TheBreakBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Clubs/TheBreak.png"
+        },
+        {
+            "name": "DostBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Food/Dost.png"
+        },
+        {
+            "name": "McdonaldsBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Food/Mcdonalds.png"
+        },
+        {
+            "name": "NightnDayBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Food/NightnDay.png"
+        },
+        {
+            "name": "PitaPitBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Food/PitaPit.png"
+        },
+        {
+            "name": "VelvetBurgerBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Food/VelvetBurger.png"
+        },
+        {
+            "name": "AlibiBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Pubs/Alibi.png"
+        },
+        {
+            "name": "CraftBarBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Pubs/CraftBar.png"
+        },
+        {
+            "name": "InnocentBystanderBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Pubs/InnocentBystander.png"
+        },
+        {
+            "name": "TheBogBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Pubs/TheBog.png"
+        },
+        {
+            "name":"TheCraicBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Pubs/TheCraic.png"
+        },
+        {
+            "name": "BlueBubbleBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Taxis/BlueBubble.png"
+        },
+        {
+            "name": "CityUnitedBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Taxis/CityBubble.png"
+        },
+        {
+            "name": "SouthernTaxisBack",
+            "filepath": "Assests/Images/VenueselectionBckGrnds/Taxis/SouthernTaxis.png"
         }
     ]
 };
