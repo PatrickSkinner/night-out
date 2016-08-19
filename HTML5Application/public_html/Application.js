@@ -21,21 +21,6 @@ function loadData(name){
 }
 
 function loadAssets(data){
-//    imagePub = new Image();
-//    imagePub.src = "Assets/Images/Buttons_Images/SQUARE_Pub.png";
-//    assets["SQUARE_Pub"] = imagePub;
-//    
-//    imageClub = new Image();
-//    imageClub.src = "Assets/Images/Buttons_Images/SQUARE_Club.png";
-//    assets["SQUARE_Club"] = imageClub;
-//    
-//    imageFood = new Image();
-//    imageFood.src = "Assets/Images/Buttons_Images/SQUARE_Food.png";
-//    assets["SQUARE_Food"] = imageFood;
-//    
-//    imageTaxi = new Image();
-//    imageTaxi.src = "Assets/Images/Buttons_Images/SQUARE_Taxi.png";
-//    assets["SQUARE_Taxi"] = imageTaxi;
     
     var x;
     for (x in data.assets){
@@ -58,7 +43,7 @@ function splashScreen() {
         drawImage(0, 0, imageSplash);
     };
     loadAssets(getAssets());
-    window.setTimeout(mainMenu, 2000);
+    window.setTimeout(mainMenu, 4000);
 }
 
 /**
@@ -108,8 +93,11 @@ function toNameList(data){
     for (x in data.list){
         createButtonObject(20, y, 280, 45, data.function, obj = { venue: data.list[x], list: data.list, old: data});
         drawImage(20, y, assets[data.list[x].name]);
-        drawText(245, (y + 35), getDistance({lat: data.list[x].latitude, lng: data.list[x].longitude}), "#000000", 18, "Arial");
-        //drawText(30, (y + 33), data.list[x].name, "#FFFFFF", 26, "Arial");
+        if(getDistance({lat: data.list[x].latitude, lng: data.list[x].longitude}) < 9999){
+            drawText(245, (y + 35), Math.floor(getDistance({lat: data.list[x].latitude, lng: data.list[x].longitude})), "#000000", 18, "Arial");
+        } else {
+            drawText(245, (y + 35), "2Far", "#000000", 18, "Arial");
+        }
         y += 55;
     }
     
@@ -134,10 +122,8 @@ function venueDisplay(data){
     drawImage(0, 0, assets["Background"]);
     
     drawImage(20, 10, assets[data.venue.name + " Back"]);
-    //drawRect(20 + 5, 10 + 5, 280, 260, "#666666");
-    //drawRect(20, 10, 280, 260, "#CCCCCC");
     
-    drawText(30, 40, data.venue.name + ":", "#00bFd4", 26, "Arial");
+    drawText(30, 40, data.venue.name + ":", "#FFFFFF", 26, "Arial");
     
     drawText(30, 70, data.venue.address, "#FFFFFF", 22, "Arial");
     drawText(30, 95, data.venue.city, "#FFFFFF", 22, "Arial");
@@ -155,7 +141,6 @@ function venueDisplay(data){
     drawImage(20, 290, assets["Back Small"]);
     drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
     
-    //createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", mapTest, obj = {lat: data.venue.latitude, long: data.venue.longitude});
     createButtonObject(110, 290, 190, 20, webRedirect, data.venue.webLink);
     drawImage(110, 290, assets["Website"]);
     drawText(165, 308, "Website", "#FFFFFF", 20, "Arial");
@@ -177,8 +162,6 @@ function taxiDisplay(data){
     drawImage(0, 0, assets["Background"]);
     
     drawImage(20, 10, assets[data.venue.name + " Back"]);
-    //drawRect(20 + 5, 10 + 5, 280, 260, "#666666");
-    //drawRect(20, 10, 280, 260, "#CCCCCC");
     
     drawText(30, 40, data.venue.name + ":", "#FFFFFF", 26, "Arial");
     
@@ -210,7 +193,6 @@ function taxiDisplay(data){
  * @returns {undefined}
  */
 function checkInput(x, y){
-    console.log(x + ", " + y);
     buttons = getButtons();
     for (var key in buttons) {
         button = buttons[key];
