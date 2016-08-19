@@ -6,6 +6,10 @@
 var Images = {
     "assets": [
         {
+            "name": "Background",
+            "filepath": "Assets/BackgroundImage.png"
+        },
+        {
             "name": "SQUARE_Pub",
             "filepath": "Assets/Images/Buttons_Images/SQUARE_Pub.png"
         },
@@ -20,6 +24,18 @@ var Images = {
         {
             "name": "SQUARE_Taxi",
             "filepath": "Assets/Images/Buttons_Images/SQUARE_Taxi.png"
+        },
+        {
+            "name": "Back Small",
+            "filepath": "Assets/Images/BackButtons/BackSmall.png"
+        },
+        {
+            "name": "Back Long",
+            "filepath": "Assets/Images/BackButtons/BackLong.png"
+        },
+        {
+            "name": "Website",
+            "filepath": "Assets/Images/WebsiteButton/WebsiteButton.png"
         },
         {
             "name": "The Bog",
@@ -162,11 +178,11 @@ var Images = {
             "filepath": "Assets/Images/VenueSelectionBckGrnds/Pubs/TheCraic.png"
         },
         {
-            "name": "Blue Bubble Back",
+            "name": "Blue Bubble Taxis Back",
             "filepath": "Assets/Images/VenueSelectionBckGrnds/Taxis/BlueBubble.png"
         },
         {
-            "name": "City United Back",
+            "name": "City United Taxis Back",
             "filepath": "Assets/Images/VenueSelectionBckGrnds/Taxis/CityUnited.png"
         },
         {

@@ -17,9 +17,8 @@ var userPosition = {lat: 0, lng: 0};
  * @returns {undefined}
  */
 function createButton(x, y, w, h, c, sc, onClickFunction, data) {    
-    var createdButton = createButtonObject(x, y, w, h, onClickFunction, data);    
+    createButtonObject(x, y, w, h, onClickFunction, data);    
     drawButton(x, y, w, h, c, sc);
-    buttons[x + "," + y] = createdButton;
 }
 
 /**
@@ -43,6 +42,7 @@ function createButtonObject(x, y, w, h, onClickFunction, data) {
         data: data
     };
     
+    buttons[x + "," + y] = createdButton;
     return createdButton;
 }
 
@@ -276,7 +276,6 @@ function updateLocation() {
  * @returns {Number}
  */
 function getDistance(destination){
-    console.log(userPosition.lat + " " +userPosition.lng + " - " + destination.lat + " " + destination.lng)
     return google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(userPosition.lat, userPosition.lng, true), new google.maps.LatLng(destination.lat, destination.lng, true));
 }
 
