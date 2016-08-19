@@ -114,6 +114,10 @@ var Images = {
             "filepath": "Assets/Images/GetDirectionsButton/GetDirectionsButton.png"
         },
         {
+            "name": "Call Taxi",
+            "filepath": "Assets/Images/GetDirectionsButton/TAXICallButton.png"
+        },
+        {
             "name": "Back",
             "filepath": "Assets/Images/Buttons_Images/Back_button.png"
         },
