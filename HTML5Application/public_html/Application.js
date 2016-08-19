@@ -188,8 +188,8 @@ function taxiDisplay(data){
 /**
  * Check if input is within button boundry, respond appropriately.
  * 
- * @param {int} x - The x coordinate of the mouse click.
- * @param {int} y - The y coordinate of the mouse click.
+ * @param {number} x - The x coordinate of the mouse click.
+ * @param {number} y - The y coordinate of the mouse click.
  * @returns {undefined}
  */
 function checkInput(x, y){

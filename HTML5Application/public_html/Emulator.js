@@ -6,10 +6,10 @@ var userPosition = {lat: 0, lng: 0};
 /**
  * Create a new button object and draw it to the screen.
  * 
- * @param {int} x - X coordinate of top left corner.
- * @param {int} y - Y coordinate of top left corner.
- * @param {int} w - Width of button, in pixels.
- * @param {int} h - Height of button, in pixels.
+ * @param {number} x - X coordinate of top left corner.
+ * @param {number} y - Y coordinate of top left corner.
+ * @param {number} w - Width of button, in pixels.
+ * @param {number} h - Height of button, in pixels.
  * @param {string} c - Color of the button. as a hex value.
  * @param {string} sc - Color of the buttons shadow. as a hex value.
  * @param {function} onClickFunction - The function to be called when the button is clicked.
@@ -24,10 +24,10 @@ function createButton(x, y, w, h, c, sc, onClickFunction, data) {
 /**
  * Create a new button object no associated visual element.
  * 
- * @param {int} x - X coordinate of top left corner.
- * @param {int} y - Y coordinate of top left corner.
- * @param {int} w - Width of button, in pixels.
- * @param {int} h - Height of button, in pixels.
+ * @param {number} x - X coordinate of top left corner.
+ * @param {number} y - Y coordinate of top left corner.
+ * @param {number} w - Width of button, in pixels.
+ * @param {number} h - Height of button, in pixels.
  * @param {function} onClickFunction - The function to be called when the button is clicked.
  * @param {object} data - An object containing all the parameters of the function as data fields.
  * @returns {createButtonObject.createdButton} - Return a reference to the created button object.
@@ -49,12 +49,12 @@ function createButtonObject(x, y, w, h, onClickFunction, data) {
 /**
  * Check if a mouse click is within the bounds of a button.
  * 
- * @param {int} x - X coordinate of mouse click.
- * @param {int} y - Y coordinate of mouse click.
- * @param {int} objX - X coordinate of the buttons top left corner.
- * @param {int} objY - Y coordinate of the buttons top left corner.
- * @param {int} objW - Width of button, in pixels.
- * @param {int} objH - Height of button, in pixels.
+ * @param {number} x - X coordinate of mouse click.
+ * @param {number} y - Y coordinate of mouse click.
+ * @param {number} objX - X coordinate of the buttons top left corner.
+ * @param {number} objY - Y coordinate of the buttons top left corner.
+ * @param {number} objW - Width of button, in pixels.
+ * @param {number} objH - Height of button, in pixels.
  * @returns {Boolean} - True if the mouse click was within the the bounds of a button.
  */
 function withinBounds (x, y, objX, objY, objW, objH) {
@@ -102,10 +102,10 @@ function onClick(evt){
 /**
  * Draw a rectangle.
  * 
- * @param {int} x - x coordinate of rectangles top left corner.
- * @param {int} y - y coordinate of rectangles top left corner.
- * @param {int} w - width of rectangle.
- * @param {int} h - height of rectangle.
+ * @param {number} x - x coordinate of rectangles top left corner.
+ * @param {number} y - y coordinate of rectangles top left corner.
+ * @param {number} w - width of rectangle.
+ * @param {number} h - height of rectangle.
  * @param {String} c - Color of the rectangle, as a hex value.
  * @returns {undefined}
  */
@@ -117,10 +117,10 @@ function drawRect(x, y, w, h, c){
 /**
  * Draw a line between two points.
  * 
- * @param {int} x1 - x coordinate of lines start point.
- * @param {int} y1 - y coordinate of lines start point.
- * @param {int} x2 - x coordinate of lines end point.
- * @param {int} y2 - y coordinate of lines end point.
+ * @param {number} x1 - x coordinate of lines start point.
+ * @param {number} y1 - y coordinate of lines start point.
+ * @param {number} x2 - x coordinate of lines end point.
+ * @param {number} y2 - y coordinate of lines end point.
  * @returns {undefined}
  */
 function drawLine(x1, y1, x2, y2){
@@ -132,9 +132,9 @@ function drawLine(x1, y1, x2, y2){
 /**
  * Draw a circle.
  * 
- * @param {int} x - x coordinate of circles center.
- * @param {int} y - y coordinate of circles center.
- * @param {int} r - radius of the circle.
+ * @param {number} x - x coordinate of circles center.
+ * @param {number} y - y coordinate of circles center.
+ * @param {number} r - radius of the circle.
  * @returns {undefined}
  */
 function drawCircle(x, y, r){
@@ -146,11 +146,11 @@ function drawCircle(x, y, r){
 /**
  * Draw a string of text.
  * 
- * @param {int} x - x coordinate of text.
- * @param {int} y - y coordinate of text.
+ * @param {number} x - x coordinate of text.
+ * @param {number} y - y coordinate of text.
  * @param {string} text - String to be displayed.
  * @param {string} c - Color of text as a hex value.
- * @param {int} s - Point size of text.
+ * @param {number} s - Point size of text.
  * @param {string} font - Desired font.
  * @returns {undefined}
  */
@@ -163,8 +163,8 @@ function drawText(x, y, text, c, s, font){
 /**
  * Draw an image to screen.
  * 
- * @param {int} x - x coordinate of images top left corner.
- * @param {int} y - y coordinate of images top left corner.
+ * @param {number} x - x coordinate of images top left corner.
+ * @param {number} y - y coordinate of images top left corner.
  * @param {Image} img - The image to be drawn.
  * @returns {undefined}
  */
@@ -175,10 +175,10 @@ function drawImage(x, y, img){
 /**
  * Draw a button with a standard style.
  * 
- * @param {int} x - X coordinate of top left corner.
- * @param {int} y - Y coordinate of top left corner.
- * @param {int} w - Width of button, in pixels.
- * @param {int} h - Height of button, in pixels.
+ * @param {number} x - X coordinate of top left corner.
+ * @param {number} y - Y coordinate of top left corner.
+ * @param {number} w - Width of button, in pixels.
+ * @param {number} h - Height of button, in pixels.
  * @param {string} colour - Color of the button. as a hex value.
  * @param {string} shadowColour - Color of the buttons shadow. as a hex value.
  * @returns {undefined}
