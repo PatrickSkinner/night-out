@@ -78,13 +78,13 @@ MyTestCase.prototype.testTaxiLoad = function () {
   assertEquals("Should contain the Blue Bubble Taxis", "Blue Bubble Taxis", taxi[0].name);
 };
 
-//MyTestCase.prototype.testLoadAssets = function () {
-//    loadAssets();
-//    assertEquals("Should be the pub image", imagePub, assets.assets[SQUARE_Pub].);
-//    assertEquals("Should be the Club image", imageClub, assets.assets[SQUARE_Club]);
-//    assertEquals("Should be the Food image", imageFood, assets.assets[SQUARE_Food]);
-//    assertEquals("Should be the Taxi image", imageTaxi, assets.assets[SQUARE_Taxi]);
-//};
+MyTestCase.prototype.testLoadAssets = function () {
+    loadAssets(getAssets());
+    assertNotNull("Should have loaded the pub image", assets["SQUARE_Pub"]);
+    assertNotNull("Should have loaded the Club image", assets["SQUARE_Club"]);
+    assertNotNull("Should have loaded the Food image", assets["SQUARE_Food"]);
+    assertNotNull("Should have loaded the Taxi image", assets["SQUARE_Taxi"]);
+};
 
 MyTestCase.prototype.testGeoLocationPass = function () {
     updateLocation();
@@ -99,6 +99,12 @@ MyTestCase.prototype.testGeoLocationFail = function () {
      Throw = true;
 }
 assertTrue("should have thrown an exception", Throw);
+    
+};
+
+MyTestCase.prototype.testDistances = function () {
+    
+    var distance = getDistance(obj = {lat: -45.874145, lng: 170.503608});
     
 };
 
