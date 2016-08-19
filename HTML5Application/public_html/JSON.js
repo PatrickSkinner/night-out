@@ -247,21 +247,21 @@ var taxis = {
     "taxis": [
         {
             "name": "Blue Bubble Taxis",
-            "latitude": -45.874145,,
+            "latitude": -45.874145,
             "longitude": 170.503608,
             "phone": "03 477 7777",
             "webLink": "dunedin.bluebubbletaxi.co.nz"
         },
         {
             "name": "City United Taxis",
-            "latitude": -45.874145,,
+            "latitude": -45.874145,
             "longitude": 170.503608,
             "phone": "03 455 5555",
             "webLink": "http://www.cityunitedtaxis.co.nz"
         },
         {
             "name": "Southern Taxis",
-            "latitude": -45.874145,,
+            "latitude": -45.874145,
             "longitude": 170.503608,
             "phone": "03 476 6300",
             "webLink": "http://www.southerntaxis.co.nz"
