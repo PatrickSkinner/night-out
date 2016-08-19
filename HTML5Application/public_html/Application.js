@@ -184,14 +184,16 @@ function taxiDisplay(data){
     
     drawText(30, 70, data.venue.phone, "#FFFFFF", 22, "Arial");
     
-    createButton(20, 290, 80, 20, "#00bFd4", "#0095a5", goBack, null);
-    drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
-    
     createButtonObject(20, 230, 280, 50, drawMap, obj = {lat: data.venue.latitude, lng: data.venue.longitude, old: data});
     drawImage(0, 210, assets["GetDirectionsButton"]);
     drawText(75, 245, "Get Directions", "#FFFFFF", 22, "Arial");
     
-    createButton(110, 290, 190, 20, "#00bFd4", "#0095a5", webRedirect, data.venue.webLink);
+    createButtonObject(20, 290, 80, 20, goBack, null);
+    drawImage(20, 290, assets["Back Small"]);
+    drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
+    
+    createButtonObject(110, 290, 190, 20, webRedirect, data.venue.webLink);
+    drawImage(110, 290, assets["Website"]);
     drawText(165, 308, "Website", "#FFFFFF", 20, "Arial");
 
 }
