@@ -104,7 +104,6 @@ function toNameList(data){
     
     createButtonObject(20, 290, 280, 20, goBack, null);
     drawImage(20, 290, assets["Back Long"]);
-    drawText(135, 308, "Back", "#FFFFFF", 20, "Arial");
 }
 
 /**
@@ -134,17 +133,14 @@ function venueDisplay(data){
     
     drawText(30, 190, "Rating: " + data.venue.rating, "#FFFFFF", 22, "Arial");
     
-    createButtonObject(20, 230, 280, 50, drawMap, obj = {lat: data.venue.latitude, lng: data.venue.longitude, function: data.old.function, old: data});
-    drawImage(0, 210, assets["GetDirectionsButton"]);
-    drawText(75, 245, "Get Directions", "#FFFFFF", 22, "Arial");
+    createButtonObject(35, 230, 280, 50, drawMap, obj = {lat: data.venue.latitude, lng: data.venue.longitude, function: data.old.function, old: data});
+    drawImage(35, 210, assets["GetDirectionsButton"]);
     
     createButtonObject(20, 290, 80, 20, goBack, null);
     drawImage(20, 290, assets["Back Small"]);
-    drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
     
     createButtonObject(110, 290, 190, 20, webRedirect, data.venue.webLink);
     drawImage(110, 290, assets["Website"]);
-    drawText(165, 308, "Website", "#FFFFFF", 20, "Arial");
 }
 
 /**
@@ -168,21 +164,17 @@ function taxiDisplay(data){
     
     drawText(30, 70, data.venue.phone, "#FFFFFF", 22, "Arial");
     
-    createButtonObject(20, 130, 280, 50, null, null);
-    drawImage(0, 90, assets["Call Taxi"]);
-    drawText(75, 150, "Call Taxi ", "#FFFFFF", 26, "Arial");
+    createButtonObject(35, 90, 250, 100, null, null);
+    drawImage(35, 90, assets["Call Taxi"]);
     
-    createButtonObject(20, 230, 280, 50, drawMap, obj = {lat: data.venue.latitude, lng: data.venue.longitude, function: data.old.function, old: data});
-    drawImage(0, 210, assets["GetDirectionsButton"]);
-    drawText(75, 245, "Get Directions", "#FFFFFF", 22, "Arial");
+    createButtonObject(35, 210, 520, 50, drawMap, obj = {lat: data.venue.latitude, lng: data.venue.longitude, function: data.old.function, old: data});
+    drawImage(35, 210, assets["GetDirectionsButton"]);
     
     createButtonObject(20, 290, 80, 20, goBack, null);
     drawImage(20, 290, assets["Back Small"]);
-    drawText(35, 308, "Back", "#FFFFFF", 20, "Arial");
     
     createButtonObject(110, 290, 190, 20, webRedirect, data.venue.webLink);
     drawImage(110, 290, assets["Website"]);
-    drawText(165, 308, "Website", "#FFFFFF", 20, "Arial");
 
 }
 
@@ -220,7 +212,6 @@ function drawMap(data){
     
     createButtonObject(20, 300, 320, 20,goBack, null);
     drawImage(20, 300, assets["Back Long"]);
-    drawText(135, 317, "Back", "#FFFFFF", 20, "Arial");
     
     updateLocation();
     getDistance(data);
