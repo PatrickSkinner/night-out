@@ -37,8 +37,9 @@ function loadAssets(data){
  * @returns {undefined}
  */
 function splashScreen() {
+    var r = Math.floor(Math.random() * 4);
     imageSplash = new Image();
-    imageSplash.src = 'Assets/Starting_Logo.png';
+    imageSplash.src = 'Assets/Starting_Logo' + r + '.png';
     imageSplash.onload = function () {
         drawImage(0, 0, imageSplash);
     };
