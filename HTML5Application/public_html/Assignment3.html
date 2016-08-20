@@ -216,32 +216,37 @@ and open the template in the editor.
             */<br>
             function init(){}<br>
         </p>
-        <p> To use the emulator, link the application's script name in the index.html file and load the index.html to run it </p>
+        <p> To use the emulator the application should be loaded from index.html in place of the existing Application.js file, the application can then be launched by opening the index.html page. </p>
             
 
 
         <h2> How the Application works </h2>
         <p>
-            Load the Index.html file, this runs the emulator which in turns loads the application. The application is simple in use, First off it gives you four 
-            different options, this includes Food, Pub, Clubs and Taxi. You can click on any of them which loads up the next list. This includes a set of different 
-            options that the user can select, this shows a link to the selected option, and a directions button that loads a map with directions to the option from your 
+            Load the Index.html file, this loads both the emulator and the application files, and creates a new canvas for the emulator to run inside. Ensure that geolocation is supported and 
+            enabled in your browser. The application is simple to use, first off it gives you four different options, this includes Food, Pub, Clubs and Taxi. You can click on any of them which loads up 
+            a list of venues or services. Click a venue takes you too an information display screen about the venue, this screen includes a link to the venues website, and a "Get directions" button that loads a map with directions to the location chosen from your 
             current position. Back buttons are on every screen allowing the user to get back to the first four main options. 
         </p>
       
         
         <h2>Tools we used</h2>
         <p>
-            We used Netbeans, this was our ide which was very useful using the git function of the ide. This allowed us to use version control 
-            very effectively and often which helped great with us working on different parts of the application and emulator. Also with Netbeans the built 
-            in JSTestDriver service which was the library we used to create the test cases and run the emulator and application unit tests and run them in different browsers
-            such as Firefox, safari and Chrome seemly. //need to add some more tools if we used them. 
+            We used Netbeans as our chosen IDE, our initial report outlined how we were already familiar with Netbeans and it's GitHub integration. This allowed us to use version control 
+            very effectively and often which helped greatly with us each working on different parts of the application and emulator simultaneously. Another advantage of Netbeans was the built 
+            in JSTestDriver service, which was the library we used to create the test cases and run the emulator and application unit tests, allowing us to easily run them simultaneously in different browsers
+            such as Firefox, Safari and Chrome. 2D art assets were created with Photoshop and Inkscape, Photoshop was again chosen due to familiarity, while Inkscape was used as it is a freely available piece of Open Source
+            software.
         </p>
+        
+        <h2>Testing</h2>
+        We had no problems with our application behaving differently between any of the 3 browsers we tested, this was likely due to our reliance on pure Javascript, with a handful of lines of HTML and CSS contained
+        in our index file. This ensured our application and emulator would run the same in any browser that supported the HTML5 canvas and geolocation.
         
         <h2>Our experience </h2>
         <p>
             Matthew Lang
             The differences of Making test cases in a new language was a new experience, it was hard not knowing what could work in the tests and how i could try to break the
-            functions i was given to test. Also working with a large group and with git was very intreseing and getting everyone to meet up was a hard task.
+            functions i was given to test. Also working with a large group and with git was very interesting and getting everyone to meet up was a hard task.
         </p>
         <p>
             Dylan Pringle
@@ -254,7 +259,11 @@ and open the template in the editor.
             discuss ideas and issues cohesively while at all times remaining very positive and encouraging towards each other. We worked mostly during weekends together in the 
             university labs so we had very good close communication when putting all the applications pieces together. I would happily work with my group members again in the 
             future.
-
+        </p>
+        <p>
+            Patrick Skinner
+            My role in the group was to outline the design of application and create the emulator. I did both these tasks as the functionality provided by the emulator was dictated by the 
+            proposed design of the application and the functionality it would require.
         </p>
     </body>
 </html>
