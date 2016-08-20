@@ -87,15 +87,31 @@ function toNameList(data){
     
     lastFunction = mainMenu;
     lastParameter = null;
+    
+    for(var x in data.list) {
+        data.list[x].distance = Math.floor(getDistance({lat: data.list[x].latitude, lng: data.list[x].longitude}))
+    }
+    
+    function compare(a, b) {
+        if (a.distance < b.distance){
+            return -1;
+        }
+        if (a.distance > b.distance){
+            return 1;
+        }
+        return 0;
+    }
+    
+    data.list.sort(compare);
 
     var x;
     var y = 10;
-    
+
     for (x in data.list){
         createButtonObject(20, y, 280, 45, data.function, obj = { venue: data.list[x], list: data.list, old: data});
         drawImage(20, y, assets[data.list[x].name]);
-        if(getDistance({lat: data.list[x].latitude, lng: data.list[x].longitude}) < 9999){
-            drawText(253, (y + 40), Math.floor(getDistance({lat: data.list[x].latitude, lng: data.list[x].longitude})), "#FFFFFF", 18, "Arial");
+        if(data.list[x].distance < 9999){
+            drawText(253, (y + 40), Math.floor(data.list[x].distance), "#FFFFFF", 18, "Arial");
         } else {
             drawText(253, (y + 40), "2Far", "#FFFFFF", 18, "Arial");
         }
