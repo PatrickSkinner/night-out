@@ -95,9 +95,9 @@ function toNameList(data){
         createButtonObject(20, y, 280, 45, data.function, obj = { venue: data.list[x], list: data.list, old: data});
         drawImage(20, y, assets[data.list[x].name]);
         if(getDistance({lat: data.list[x].latitude, lng: data.list[x].longitude}) < 9999){
-            drawText(245, (y + 35), Math.floor(getDistance({lat: data.list[x].latitude, lng: data.list[x].longitude})), "#000000", 18, "Arial");
+            drawText(253, (y + 40), Math.floor(getDistance({lat: data.list[x].latitude, lng: data.list[x].longitude})), "#FFFFFF", 18, "Arial");
         } else {
-            drawText(245, (y + 35), "2Far", "#000000", 18, "Arial");
+            drawText(253, (y + 40), "2Far", "#FFFFFF", 18, "Arial");
         }
         y += 55;
     }
