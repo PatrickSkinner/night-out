@@ -102,12 +102,6 @@ assertTrue("should have thrown an exception", Throw);
     
 };
 
-MyTestCase.prototype.testDistances = function () {
-    
-    var distance = getDistance(obj = {lat: -45.874145, lng: 170.503608});
-    
-};
-
 MyTestCase.prototype.tearDown = function (){
     delete(button1);
     delete(button2);
