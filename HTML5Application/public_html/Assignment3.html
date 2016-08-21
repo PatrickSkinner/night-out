@@ -216,9 +216,19 @@ and open the template in the editor.
             */<br>
             function init(){}<br>
         </p>
-        <p> To use the emulator the application should be loaded from index.html in place of the existing Application.js file, the application can then be launched by opening the index.html page. </p>
+        <p> To use the emulator the application should be loaded from index.html in place of the existing Application.js file, the application can then be launched by opening the index.html page. The index
+        page will provide a 320x320 canvas as well as a 320x320 div used to draw a Google map object, this div is placed on top of the canvas but can be toggled on or off by changing the CSS style. 
+        
+        The emulator provides a series of basic drawing functions to the application, including basic shapes, text, and images. Two functions are provided for the creation of new buttons, one which creates a new button object
+        and another that creates a new button object and draws an appropriate graphic, both functions add the button to the button array. The button array holds all the buttons that are currently active, and should be cleared each
+        time the application draws a new screen. When a new button is created a function is passed as a parameter, this is the function that's called when the button is clicked, if the function is to be called with parameters
+        then the "data" field of the button should contain an object with the appropriate parameters as data fields, this is too allow a varying amount of parameters being passed to a function.
+        
+        The application should be structured such that each page/screen is its own function. Each of these functions should begin by clearing the screen and the buttons array with the appropriate emulator functions
+        a new button can be created with the a default graphical stlye with the createButton function, or with no visual component with the createButtonObject function, so art assets can be manually placed
+        over the buttons location. The emulator holds a "userLocation" object that stores the users latitude and longitude, this can updated by calling the updateLocation method. This object is used
+        in the initDirections and getDistance functions, which use the users location in conjunction with a passed in LatLng object.</p>
             
-
 
         <h2> How the Application works </h2>
         <p>
@@ -240,14 +250,14 @@ and open the template in the editor.
         
         <h2>Testing</h2>
         We had no problems with our application behaving differently between any of the 3 browsers we tested, this was likely due to our reliance on pure Javascript, with a handful of lines of HTML and CSS contained
-        in our index file. This ensured our application and emulator would run the same in any browser that supported the HTML5 canvas and geolocation.
+        in our index file. This ensured our application and emulator would run the same in any browser that supported the HTML5 canvas and geolocation. The JSTestDriver functionality made the test
+        process easy and let us easily run our tests in all browsers with a single click, we made sure we ran the test suite before pushing any commits to the main branch.
         
         <h2>Our experience </h2>
         <p>
             Matthew Lang
-            My role in the group was unit testing, and doing any odd job that was needed by the group, the difficulties of Making test cases in a new language was a new experience, 
-            it was hard not knowing what could work in the tests and how i could try to break the functions i was given to test. Also working with a large group and with git was very interesting
-            and getting everyone to meet up was a hard task.
+            The differences of Making test cases in a new language was a new experience, it was hard not knowing what could work in the tests and how i could try to break the
+            functions i was given to test. Also working with a large group and with git was very interesting and getting everyone to meet up was a hard task.
         </p>
         <p>
             Dylan Pringle
@@ -264,7 +274,8 @@ and open the template in the editor.
         <p>
             Patrick Skinner
             My role in the group was to outline the design of application and create the emulator. I did both these tasks as the functionality provided by the emulator was dictated by the 
-            proposed design of the application and the functionality it would require.
+            proposed design of the application and the functionality it would require. I limited the functionality of the emulator to what was needed by our application, every function in the
+            emulator was used by the application at some point.
         </p>
     </body>
 </html>
