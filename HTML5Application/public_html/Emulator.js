@@ -16,8 +16,8 @@ var userPosition = {lat: 0, lng: 0};
  * @param {object} data - An object containing all the parameters of the function as data fields.
  * @returns {undefined}
  */
-function createButton(x, y, w, h, c, sc, onClickFunction, data) {    
-    createButtonObject(x, y, w, h, onClickFunction, data);    
+function createButton(x, y, w, h, c, sc, onClickFunction, data) {
+    createButtonObject(x, y, w, h, onClickFunction, data);
     drawButton(x, y, w, h, c, sc);
 }
 
@@ -38,10 +38,12 @@ function createButtonObject(x, y, w, h, onClickFunction, data) {
         yLocation: y,
         width: w,
         height: h,
-        onClickFunction: function() {onClickFunction(data);},
+        onClickFunction: function () {
+            onClickFunction(data);
+        },
         data: data
     };
-    
+
     buttons[x + "," + y] = createdButton;
     return createdButton;
 }
@@ -57,8 +59,8 @@ function createButtonObject(x, y, w, h, onClickFunction, data) {
  * @param {number} objH - Height of button, in pixels.
  * @returns {Boolean} - True if the mouse click was within the the bounds of a button.
  */
-function withinBounds (x, y, objX, objY, objW, objH) {
-    if ((objX < x && objY < y) && (objW+objX > x && objY+objH > y)) {
+function withinBounds(x, y, objX, objY, objW, objH) {
+    if ((objX < x && objY < y) && (objW + objX > x && objY + objH > y)) {
         return true;
     }
     return false;
@@ -69,7 +71,7 @@ function withinBounds (x, y, objX, objY, objW, objH) {
  * 
  * @returns {Array|buttons|button1} - An array of all the buttons currently on screen.
  */
-function getButtons(){
+function getButtons() {
     return buttons;
 }
 
@@ -78,7 +80,7 @@ function getButtons(){
  * 
  * @returns {undefined}
  */
-function clearButtons(){
+function clearButtons() {
     buttons = [];
 }
 
@@ -88,14 +90,14 @@ function clearButtons(){
  * @param {type} evt
  * @returns {onClick.EmulatorAnonym$0} - Return an object with teh x and y coordinates of the mouse click as data fields.
  */
-function onClick(evt){
+function onClick(evt) {
     var rect = c.getBoundingClientRect(), root = document.documentElement;
 
     var mouseX = evt.clientX - rect.left - root.scrollLeft;
     var mouseY = evt.clientY - rect.top - root.scrollTop;
     return {
-      x: mouseX,
-      y: mouseY
+        x: mouseX,
+        y: mouseY
     };
 }
 
@@ -109,9 +111,9 @@ function onClick(evt){
  * @param {String} c - Color of the rectangle, as a hex value.
  * @returns {undefined}
  */
-function drawRect(x, y, w, h, c){
+function drawRect(x, y, w, h, c) {
     ctx.fillStyle = c;
-    ctx.fillRect(x,y,w,h);
+    ctx.fillRect(x, y, w, h);
 }
 
 /**
@@ -123,9 +125,9 @@ function drawRect(x, y, w, h, c){
  * @param {number} y2 - y coordinate of lines end point.
  * @returns {undefined}
  */
-function drawLine(x1, y1, x2, y2){
-    ctx.moveTo(x1,y1);
-    ctx.lineTo(x2,y2);
+function drawLine(x1, y1, x2, y2) {
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
     ctx.stroke();
 }
 
@@ -137,9 +139,9 @@ function drawLine(x1, y1, x2, y2){
  * @param {number} r - radius of the circle.
  * @returns {undefined}
  */
-function drawCircle(x, y, r){
+function drawCircle(x, y, r) {
     ctx.beginPath();
-    ctx.arc(x,y,r,0,2*Math.PI);
+    ctx.arc(x, y, r, 0, 2 * Math.PI);
     ctx.stroke();
 }
 
@@ -154,7 +156,7 @@ function drawCircle(x, y, r){
  * @param {string} font - Desired font.
  * @returns {undefined}
  */
-function drawText(x, y, text, c, s, font){
+function drawText(x, y, text, c, s, font) {
     ctx.fillStyle = c;
     ctx.font = s + "px " + font;
     ctx.fillText(text, x, y);
@@ -168,7 +170,7 @@ function drawText(x, y, text, c, s, font){
  * @param {Image} img - The image to be drawn.
  * @returns {undefined}
  */
-function drawImage(x, y, img){
+function drawImage(x, y, img) {
     ctx.drawImage(img, x, y);
 }
 
@@ -183,7 +185,7 @@ function drawImage(x, y, img){
  * @param {string} shadowColour - Color of the buttons shadow. as a hex value.
  * @returns {undefined}
  */
-function drawButton(x, y, w, h, colour, shadowColour){
+function drawButton(x, y, w, h, colour, shadowColour) {
     drawRect(x + 5, y + 5, w, h, shadowColour);
     drawRect(x, y, w, h, colour);
 }
@@ -193,7 +195,7 @@ function drawButton(x, y, w, h, colour, shadowColour){
  * 
  * @returns {undefined}
  */
-function clear(){
+function clear() {
     ctx.clearRect(0, 0, 320, 320);
 }
 
@@ -203,11 +205,11 @@ function clear(){
  * @param {object} obj - An object holding the longitude and latitude of a location as data fields.
  * @returns {undefined}
  */
-function mapTest(obj){
-    var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + obj.lat + "," + obj.lng +"&zoom=16&size=320x320"  + "&markers=color:red%7Clabel:C%7C" + obj.lat + "," + obj.long;
+function mapTest(obj) {
+    var google_tile = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + obj.lat + "," + obj.lng + "&zoom=16&size=320x320" + "&markers=color:red%7Clabel:C%7C" + obj.lat + "," + obj.long;
     var imageObj = new Image();
     imageObj.src = google_tile;
-    imageObj.onload = function() {
+    imageObj.onload = function () {
         ctx.drawImage(imageObj, 0, 0);
     };
 }
@@ -227,19 +229,19 @@ function initDirection(targetLocation) {
         scrollwheel: true,
         zoom: 12
     });
-    
+
     var directionsDisplay = new google.maps.DirectionsRenderer({
         map: map
     });
-    
+
     var request = {
         destination: targetLocation,
         origin: userPosition,
         travelMode: 'WALKING'
     };
-    
+
     var directionsService = new google.maps.DirectionsService();
-    directionsService.route(request, function(response, status) {
+    directionsService.route(request, function (response, status) {
         if (status === 'OK') {
             directionsDisplay.setDirections(response);
         }
@@ -255,16 +257,15 @@ function updateLocation() {
     var message;
     try {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-            userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
+            navigator.geolocation.getCurrentPosition(function (position) {
+                userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
             });
         } else {
-                
-                throw "Geolocation Not Enabled.";
+
+            throw "Geolocation Not Enabled.";
 
         }
-    }
-    catch (err) {
+    } catch (err) {
         message.innerHTML = "geolocation not enabled";
     }
 }
@@ -275,17 +276,17 @@ function updateLocation() {
  * @param {Object} destination - An object holding the latitude and longitude of a destination as data fields.
  * @returns {Number}
  */
-function getDistance(destination){
+function getDistance(destination) {
     return google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(userPosition.lat, userPosition.lng, true), new google.maps.LatLng(destination.lat, destination.lng, true));
 }
 
 /**
  * Open a given URL in a new tab.
  * 
- * @param {string} url
+ * @param {string} url - A URL to be opened in a new tab by the browser.
  * @returns {undefined}
  */
-function webRedirect(url){
+function webRedirect(url) {
     window.open(url);
 }
 
@@ -294,16 +295,16 @@ function webRedirect(url){
  * 
  * @returns {undefined}
  */
-function init(){
+function init() {
     c = document.getElementById("myCanvas");
     document.getElementById('map').style.display = 'none';
     ctx = c.getContext("2d");
-    c.addEventListener('click', function(evt) {
-    mousePos = onClick(evt);
-    mousePosG = mousePos.x;
-    checkInput(mousePos.x, mousePos.y);
+    c.addEventListener('click', function (evt) {
+        mousePos = onClick(evt);
+        mousePosG = mousePos.x;
+        checkInput(mousePos.x, mousePos.y);
     }, false);
-    
+
 }
 
 init();
